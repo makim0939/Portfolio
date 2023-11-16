@@ -12,7 +12,7 @@ class GridApp {
   private readonly DOT_COLOR = 0xe7e7e7;
   private readonly DOT_SPACING = 32;
   private readonly GRID_DEFAULT_POS = 21;
-  private readonly MOVE_SPEED = 0.05;
+  private readonly MOVE_SPEED = 0.036;
   private readonly INITIAL_MOVE_DIST = 32 * 16;
   private readonly BLUER_COEFFICIENT = 0.01;
 
@@ -63,10 +63,10 @@ class GridApp {
   };
   public removeTicker(): void {
     this.app.ticker.remove(this.gridAnimation);
+    this.count = 0;
   }
 
   public addTicker = (animation: "up" | "left" | "right") => {
-    // if (animation === "up") this.gridUp();
     this.count = 0;
     if (animation === "up") this.currentAnimation = "up";
     else if (animation === "left") this.currentAnimation = "left";

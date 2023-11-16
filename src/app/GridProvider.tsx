@@ -1,18 +1,18 @@
 "use client";
-import { gridAppAtom } from "@/atoms";
 import GridApp from "@/grid";
-import { useAtom } from "jotai";
 import React, { createContext, useEffect, useRef } from "react";
+
 const gridApp = new GridApp();
 export const GridAppContext = createContext<GridApp>(gridApp);
-
 const GridProvider = ({ children }: { children: React.ReactNode }) => {
   const gridRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    console.log(gridRef.current);
     if (!gridRef.current) return;
-    gridApp.appendGrid(gridRef.current);
+    const div = gridRef.current;
+    gridApp.appendGrid(div);
+    return () => {
+      div.removeChild(div.firstChild!);
+    };
   }, []);
   return (
     <>

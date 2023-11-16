@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Graduate, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Grid from "@/components/Grid";
 import GridProvider from "./GridProvider";
 
 const inter = Inter({ subsets: ["latin"] });
