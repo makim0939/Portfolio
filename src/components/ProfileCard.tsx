@@ -33,9 +33,9 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
   }
   return (
     <div className="w-full h-screen">
-      <div className="absolute top-1/3 left-1/2 w-[36.4vw] h-[22vw] min-w-[331.6px] min-h-[198px] border-neutral-50 border-[1px] border-solid transform -translate-x-1/2 -translate-y-1/3">
+      <div className="absolute top-1/3 left-1/2 w-[36.4vw] h-[22vw] min-w-[331.6px] min-h-[198px] transform -translate-x-1/2 -translate-y-1/3">
         <motion.div
-          className=" w-full h-full  flex  p-[6%] bg-white shadow-lg "
+          className=" w-full h-full  flex  p-[6%] bg-white shadow-lg shadow-neutral-200 border-neutral-50 border-[1px] border-solid "
           {...(animationProps as MotionProps)}
         >
           <div className="w-2/5 pr-[5%] pt-[5%] ">
