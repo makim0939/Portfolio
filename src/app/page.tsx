@@ -14,7 +14,6 @@ export default function Home() {
     <>
       <Header page={1} />
       <ProfileCard page={1} />
-      <div style={{ height: 8000 }}></div>
     </>
   );
 }

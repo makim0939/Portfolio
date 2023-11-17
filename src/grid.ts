@@ -40,7 +40,6 @@ class GridApp {
 
   private gridAnimation = () => {
     if (this.currentAnimation === "none") return;
-    console.log(window.scrollY);
     if (this.currentAnimation === "scroll") this.count += (window.scrollY - this.count) * this.SCROLL_SPEED;
     else this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
     this.grid.clear();
@@ -86,6 +85,11 @@ class GridApp {
     else if (animation === "left") this.currentAnimation = "left";
     else if (animation === "right") this.currentAnimation = "right";
     this.app.ticker.add(this.gridAnimation);
+  };
+
+  public resize = (width: number, height: number) => {
+    this.width = width;
+    this.height = height;
   };
 
   //debug
