@@ -33,7 +33,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
   }
   return (
     <div className="w-full h-screen">
-      <div className="absolute top-1/3 left-1/2 w-[36.4vw] h-[22vw] min-w-[331.6px] min-h-[198px] transform -translate-x-1/2 -translate-y-1/3">
+      <div className="absolute top-1/3 left-1/2 w-[36.4vw] h-[22vw] min-w-[331.6px] min-h-[198px] border-neutral-50 border-[1px] border-solid transform -translate-x-1/2 -translate-y-1/3">
         <motion.div
           className=" w-full h-full  flex  p-[6%] bg-white shadow-lg "
           {...(animationProps as MotionProps)}
@@ -42,10 +42,14 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
             <Image src="/assets/profile.jpg" width={200} height={200} alt="profile image" />
           </div>
           <div className="w-3/5 ">
-            <h3 className=" text-xl border-b border-theme">NAME</h3>
-            <p>mail</p>
-            <p>comment</p>
-            <div>link</div>
+            <h3 className="text-xl text-center border-b-2 border-theme">NAME</h3>
+            <div className="h-full">
+              <p className="text-center">e-mail@mail.com</p>
+              <p className="h-3/5">自己紹介コメントを書くところ</p>
+              <div className="flex justify-end">
+                <div>links</div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
