@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       <Header page={2} />
-      <ProfileCard />
+      <ProfileCard page={2} />
     </>
   );
 };

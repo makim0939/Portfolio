@@ -7,12 +7,13 @@ class GridApp {
   private readonly grid: PIXI.Graphics;
   private readonly blurFilter: PIXI.BlurFilter;
 
-  //animation propaties
-  private readonly DOT_SIZE = 2.5;
-  private readonly DOT_COLOR = 0xe7e7e7;
+  //animation properties
+  private readonly DOT_SIZE = 3;
+  private readonly DOT_COLOR = 0xf0f0f0;
   private readonly DOT_SPACING = 32;
   private readonly GRID_DEFAULT_POS = 21;
   private readonly MOVE_SPEED = 0.036;
+  private readonly SCROLL_SPEED = 0.5;
   private readonly INITIAL_MOVE_DIST = 32 * 16;
   private readonly BLUER_COEFFICIENT = 0.01;
 
@@ -28,6 +29,7 @@ class GridApp {
     [this.width, this.height] = [this.app.screen.width, this.app.screen.height];
     this.grid = new PIXI.Graphics();
     this.blurFilter = new PIXI.BlurFilter();
+    this.grid.filters = [this.blurFilter];
     this.app.stage.addChild(this.grid);
 
     this.currentAnimation = "none";
@@ -38,25 +40,37 @@ class GridApp {
 
   private gridAnimation = () => {
     if (this.currentAnimation === "none") return;
-    if (this.currentAnimation === "scroll") return;
-    this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
+    console.log(window.scrollY);
+    if (this.currentAnimation === "scroll") this.count += (window.scrollY - this.count) * this.SCROLL_SPEED;
+    else this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
     this.grid.clear();
     for (let i = 0; i < this.width; i += this.DOT_SPACING) {
       for (let j = 0; j < this.height; j += this.DOT_SPACING) {
         this.grid.beginFill(this.DOT_COLOR, 1);
-        if (this.currentAnimation === "up") this.grid.drawCircle(i, j + (this.count % this.DOT_SPACING), this.DOT_SIZE);
+        if (this.currentAnimation === "scroll")
+          this.grid.drawCircle(i, j - (this.count % this.DOT_SPACING), this.DOT_SIZE);
+        else if (this.currentAnimation === "up")
+          this.grid.drawCircle(i, j + (this.count % this.DOT_SPACING), this.DOT_SIZE);
         else if (this.currentAnimation === "left")
           this.grid.drawCircle(i - (this.count % this.DOT_SPACING), j, this.DOT_SIZE);
         else if (this.currentAnimation === "right")
           this.grid.drawCircle(i + (this.count % this.DOT_SPACING), j, this.DOT_SIZE);
         this.grid.endFill();
-        this.blurFilter.blur = (this.DOT_SPACING * 16 - this.count) * this.BLUER_COEFFICIENT;
+        if (this.currentAnimation === "scroll") this.blurFilter.blur = 0;
+        else this.blurFilter.blur = (this.INITIAL_MOVE_DIST - this.count) * this.BLUER_COEFFICIENT;
       }
     }
     if (this.INITIAL_MOVE_DIST - this.count <= 0.1) {
-      this.changeTicker("none");
+      if (this.currentAnimation === "scroll") return;
+      this.changeTicker("scroll");
     }
   };
+
+  //getter
+  public get getCurrentAnimation() {
+    return this.currentAnimation;
+  }
+
   public changeTicker = (animation: "none" | "scroll" | "up" | "left" | "right") => {
     this.currentAnimation = animation;
     this.count = 0;
@@ -66,7 +80,7 @@ class GridApp {
     this.count = 0;
   }
 
-  public addTicker = (animation: "up" | "left" | "right") => {
+  public addTicker = (animation: "none" | "scroll" | "up" | "left" | "right") => {
     this.count = 0;
     if (animation === "up") this.currentAnimation = "up";
     else if (animation === "left") this.currentAnimation = "left";

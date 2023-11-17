@@ -13,7 +13,8 @@ export default function Home() {
   return (
     <>
       <Header page={1} />
-      <ProfileCard />
+      <ProfileCard page={1} />
+      <div style={{ height: 8000 }}></div>
     </>
   );
 }
