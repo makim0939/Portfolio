@@ -5,6 +5,7 @@ import { GridAppContext } from "../GridProvider";
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
+import FadeInContainer from "@/components/animation/FadeInContainer";
 
 const Contact = () => {
   const gridApp = useContext(GridAppContext);
@@ -18,30 +19,42 @@ const Contact = () => {
       <div className=" absolute top-[64px] w-full p-4">
         <section>
           <IndexText>Contact</IndexText>
-          <p>mail : makimura3329@gmail.com</p>
         </section>
 
-        {/* <form action="">
+        <form action="">
           <div className="max-w-[720px]">
-            <div className=" flex flex-col my-4 ">
-              <label htmlFor="">お名前</label>
-              <input type="text" className=" border border-text h-8 " />
-            </div>
-            <div className=" flex flex-col my-4 ">
-              <label htmlFor="">メールアドレス</label>
+            <FadeInContainer>
+              <div className=" flex flex-col my-4 ">
+                <label htmlFor="">お名前</label>
+                <input type="text" className=" border border-text h-8 rounded-sm focus:border-theme" />
+              </div>
+              <div className=" flex flex-col my-4 ">
+                <label htmlFor="">メールアドレス</label>
 
-              <input type="email" className=" border border-text h-8" />
-            </div>
-            <div className=" flex flex-col my-4 ">
-              <label htmlFor="">件名</label>
-              <input type="" className=" border border-text h-8" />
-            </div>
-            <div className=" flex flex-col my-4 ">
-              <label htmlFor="">内容</label>
-              <textarea name="" id="" cols={30} rows={8} className=" border border-text"></textarea>
-            </div>
+                <input type="email" className=" border border-text h-8 rounded-sm focus:border-theme" />
+              </div>
+              <div className=" flex flex-col my-4 ">
+                <label htmlFor="">件名</label>
+                <input type="" className=" border border-text h-8 rounded-sm focus:border-theme" />
+              </div>
+              <div className=" flex flex-col my-4 ">
+                <label htmlFor="">内容</label>
+                <textarea
+                  name=""
+                  id=""
+                  cols={30}
+                  rows={8}
+                  className=" border border-text rounded-sm focus:border-theme "
+                ></textarea>
+              </div>
+              <div className=" w-full flex justify-end my-4 ">
+                <button className=" w-1/5 h-[32px] border border-theme rounded-sm hover:bg-theme_light transform duration-[.5s]">
+                  送信
+                </button>
+              </div>
+            </FadeInContainer>
           </div>
-        </form> */}
+        </form>
       </div>
     </>
   );
