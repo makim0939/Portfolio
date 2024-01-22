@@ -9,7 +9,7 @@ class GridApp {
 
   //animation properties
   private readonly DOT_SIZE = 3;
-  private readonly DOT_COLOR = 0xf0f0f0;
+  private readonly DOT_COLOR = 0xeaeaea;
   private readonly DOT_SPACING = 32;
   private readonly GRID_DEFAULT_POS = 21;
   private readonly MOVE_SPEED = 0.036;
@@ -18,7 +18,8 @@ class GridApp {
   private readonly BLUER_COEFFICIENT = 0.01;
 
   //state
-  private currentAnimation: "none" | "scroll" | "up" | "left" | "right";
+  private currentAnimation: "none" | "scroll" | "up" | "down" | "left" | "right";
+  private scroll: number | null = null;
   private count = 0;
 
   constructor() {
@@ -40,8 +41,11 @@ class GridApp {
 
   private gridAnimation = () => {
     if (this.currentAnimation === "none") return;
-    if (this.currentAnimation === "scroll") this.count += (window.scrollY - this.count) * this.SCROLL_SPEED;
-    else this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
+    if (this.currentAnimation === "scroll") {
+      if (this.scroll) {
+        this.count += (this.scroll - this.count) * this.SCROLL_SPEED;
+      } else this.count += (window.scrollY - this.count) * this.SCROLL_SPEED;
+    } else this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
     this.grid.clear();
     for (let i = 0; i < this.width; i += this.DOT_SPACING) {
       for (let j = 0; j < this.height; j += this.DOT_SPACING) {
@@ -50,6 +54,8 @@ class GridApp {
           this.grid.drawCircle(i, j - (this.count % this.DOT_SPACING), this.DOT_SIZE);
         else if (this.currentAnimation === "up")
           this.grid.drawCircle(i, j + (this.count % this.DOT_SPACING), this.DOT_SIZE);
+        else if (this.currentAnimation === "down")
+          this.grid.drawCircle(i, j - (this.count % this.DOT_SPACING), this.DOT_SIZE);
         else if (this.currentAnimation === "left")
           this.grid.drawCircle(i - (this.count % this.DOT_SPACING), j, this.DOT_SIZE);
         else if (this.currentAnimation === "right")
@@ -69,17 +75,21 @@ class GridApp {
   public get getCurrentAnimation() {
     return this.currentAnimation;
   }
+  public setScroll = (scroll?: number) => {
+    this.scroll = scroll ? scroll : null;
+  };
 
-  public changeTicker = (animation: "none" | "scroll" | "up" | "left" | "right") => {
+  public changeTicker = (animation: "none" | "scroll" | "up" | "down" | "left" | "right") => {
     this.currentAnimation = animation;
     this.count = 0;
+    console.log(this.currentAnimation);
   };
   public removeTicker(): void {
     this.app.ticker.remove(this.gridAnimation);
     this.count = 0;
   }
 
-  public addTicker = (animation: "none" | "scroll" | "up" | "left" | "right") => {
+  public addTicker = (animation: "none" | "scroll" | "up" | "down" | "left" | "right") => {
     this.count = 0;
     if (animation === "up") this.currentAnimation = "up";
     else if (animation === "left") this.currentAnimation = "left";
