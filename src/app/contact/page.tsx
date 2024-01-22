@@ -47,8 +47,8 @@ const Contact = () => {
                   className=" border border-text rounded-sm focus:border-theme "
                 ></textarea>
               </div>
-              <div className=" w-full flex justify-end my-4 ">
-                <button className=" w-1/5 h-[32px] border border-theme rounded-sm hover:bg-theme_light transform duration-[.5s]">
+              <div className=" w-full flex justify-center my-6 ">
+                <button className=" w-full h-[42px] border border-text rounded-sm hover:bg-theme_light hover:border-theme transform duration-[.5s]">
                   送信
                 </button>
               </div>
