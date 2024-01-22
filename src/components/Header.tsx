@@ -1,34 +1,54 @@
 "use client";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { ReactHTMLElement, use, useEffect, useRef, useState } from "react";
+import { HTMLMotionProps, motion } from "framer-motion";
 import Link from "next/link";
-import { prevPageAtom } from "../atoms";
+import { headerModeAtom, headerUnderLineAtom, prevPageAtom } from "../atoms";
 import { useAtom } from "jotai";
-import { useRouter } from "next/navigation";
-const EASE = [0.22, 1, 0.36, 1];
+export const EASE = [0.22, 1, 0.36, 1];
 
 const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   const [prevPage, setPrevPage] = useAtom(prevPageAtom);
+  const [headerMode] = useAtom(headerModeAtom);
+  const [prevHeaderMode, setPrevHeaderMode] = useState("default");
+  const [headerUnderLine, setHeaderUnderLine] = useAtom(headerUnderLineAtom);
   let headerAnimation;
-  if (!!prevPage) headerAnimation = {};
-  else
+  if (!!prevPage)
+    headerAnimation = {
+      initial: { opacity: 1, y: 0 },
+      animate: { opacity: 1, y: 0 },
+    };
+  else {
     headerAnimation = {
       initial: { opacity: 0, y: 100 },
       animate: { opacity: 1, y: 0 },
     };
+  }
+  const underlineRef = useRef<HTMLDivElement>(null);
+  const prevUnderlineRef = useRef<HTMLDivElement>(null);
+  const ulRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
+    if (page === prevPage && headerMode === prevHeaderMode) return;
+    setPrevHeaderMode(headerMode);
     return () => {
       if (!window.location.pathname) setPrevPage(0);
       else if (window.location.pathname === "/") setPrevPage(1);
       else if (window.location.pathname === "/about") setPrevPage(2);
       else if (window.location.pathname === "/contact") setPrevPage(3);
     };
-  }, [setPrevPage]);
+  }, [setPrevPage, page, prevPage, headerMode, prevHeaderMode]);
 
   return (
     <nav className="fixed w-full z-10">
-      <ul className="p-3 text-2xl  md:text-3xl 2xl:text-4xl   font-extralight flex justify-around z-10">
+      <motion.ul
+        ref={ulRef}
+        layoutId={prevPage ? undefined : "header"}
+        className={
+          headerMode === "small"
+            ? "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-end z-10"
+            : "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-around z-10"
+        }
+      >
         <li className="w-24 md:w-32 xl:w-40">
           <motion.h3
             {...headerAnimation}
@@ -37,13 +57,8 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
           >
             <Link href={"/"}>Home</Link>
           </motion.h3>
-          {page === 1 && (
-            <motion.div
-              layoutId="underline"
-              className=" h-[0.12rem] bg-theme"
-              transition={{ duration: 0.2, ease: EASE }}
-            ></motion.div>
-          )}
+          {page === 1 && <div ref={underlineRef} className="w-full"></div>}
+          {prevPage === 1 && <div ref={prevUnderlineRef}></div>}
         </li>
         <li className="w-24 md:w-32 xl:w-40">
           <motion.h3
@@ -57,36 +72,36 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
           >
             <Link href={"/about"}> About</Link>
           </motion.h3>
-          {page === 2 && (
-            <motion.div
-              layoutId="underline"
-              className="h-[0.12rem] bg-theme"
-              transition={{ duration: 0.2, ease: EASE }}
-            ></motion.div>
-          )}
+          {page === 2 && <div ref={underlineRef} className="w-full"></div>}
+          {prevPage === 2 && <div ref={prevUnderlineRef}></div>}
         </li>
         <li className="w-24 md:w-32 xl:w-40">
-          <motion.h3
-            {...headerAnimation}
-            transition={{
-              delay: 0.2,
-              duration: 0.5,
-              ease: EASE,
-            }}
-            className="w-full text-center"
-          >
-            <Link href={"/contact"}>Contact </Link>
-          </motion.h3>
-
-          {page === 3 && (
-            <motion.div
-              layoutId="underline"
-              className="h-[0.12rem] bg-theme"
-              transition={{ duration: 0.2, ease: EASE }}
-            ></motion.div>
-          )}
+          <div className=" relative top-0">
+            <motion.h3
+              {...headerAnimation}
+              transition={{
+                delay: 0.2,
+                duration: 0.5,
+                ease: EASE,
+              }}
+              className="w-full text-center"
+            >
+              <Link href={"/contact"}>Contact </Link>
+            </motion.h3>
+          </div>
+          {page === 3 && <div ref={underlineRef} className="w-full"></div>}
+          {prevPage === 3 && <div ref={prevUnderlineRef}></div>}
         </li>
-      </ul>
+      </motion.ul>
+      {page === prevPage && (
+        <motion.div
+          className="w-[192px] h-[0.12rem] bg-theme"
+          style={{ width: underlineRef.current?.getBoundingClientRect().width }}
+          initial={{ x: prevUnderlineRef.current?.getBoundingClientRect().x }}
+          animate={{ x: underlineRef.current?.getBoundingClientRect().x }}
+          transition={{ duration: 0.2, ease: EASE }}
+        ></motion.div>
+      )}
     </nav>
   );
 };

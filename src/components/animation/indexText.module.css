@@ -1,0 +1,48 @@
+.underline {
+  border-bottom: 2px solid #252528; /* ボーダーの色と太さ */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease; /* アニメーションの持続時間とイージング */
+  animation: underline 1s ease-in-out forwards;
+}
+
+.underline:hover::before {
+  transform: scaleX(1);
+}
+
+@keyframes underline {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.indexText {
+  clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+  animation: animate-square 0.5s ease-in-out forwards;
+}
+@keyframes animate-square {
+  0% {
+    clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+  }
+  43% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0;
+  }
+  57% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  60% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}

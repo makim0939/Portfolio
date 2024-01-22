@@ -1,22 +1,24 @@
-import { prevPageAtom } from "@/atoms";
+import { gridAnimationRequestAtom, prevPageAtom } from "@/atoms";
 import GridApp from "@/grid";
 import { useAtom } from "jotai";
 import React, { useState, useEffect, useRef } from "react";
 
 const useGrid = ({ gridApp, page }: { gridApp: GridApp; page: 1 | 2 | 3 }) => {
   const [prevPage] = useAtom(prevPageAtom);
+  const [gridAnimationRequest, setGridAnimationRequest] = useAtom(gridAnimationRequestAtom);
   useEffect(() => {
     gridApp.addTicker("none");
     if (!prevPage) gridApp.changeTicker("up");
     else if (page > prevPage) gridApp.changeTicker("left");
     else if (page < prevPage) gridApp.changeTicker("right");
+    if (gridAnimationRequest) {
+      gridApp.changeTicker(gridAnimationRequest);
+      setGridAnimationRequest(null);
+      return;
+    }
 
-    let scrollable = false;
+    const scrollable = page === prevPage ? true : false;
     const changeToScroll = (e: Event) => {
-      if (page === prevPage && !scrollable) {
-        scrollable = true;
-        return;
-      }
       if (!scrollable) return;
       if (gridApp.getCurrentAnimation === "scroll") return;
       gridApp.changeTicker("scroll");
@@ -32,7 +34,7 @@ const useGrid = ({ gridApp, page }: { gridApp: GridApp; page: 1 | 2 | 3 }) => {
       window.removeEventListener("resize", resizeCanvas);
       gridApp.removeTicker();
     };
-  }, [gridApp, page, prevPage]);
+  }, [gridApp, page, prevPage, gridAnimationRequest, setGridAnimationRequest]);
   return;
 };
 
