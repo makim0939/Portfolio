@@ -19,7 +19,7 @@ class GridApp {
 
   //state
   private currentAnimation: "none" | "scroll" | "up" | "down" | "left" | "right";
-  private scroll: number | null = null;
+  private scroll?: number = undefined;
   private count = 0;
 
   constructor() {
@@ -42,7 +42,7 @@ class GridApp {
   private gridAnimation = () => {
     if (this.currentAnimation === "none") return;
     if (this.currentAnimation === "scroll") {
-      if (this.scroll) {
+      if (this.scroll !== undefined) {
         this.count += (this.scroll - this.count) * this.SCROLL_SPEED;
       } else this.count += (window.scrollY - this.count) * this.SCROLL_SPEED;
     } else this.count += (this.INITIAL_MOVE_DIST - this.count) * this.MOVE_SPEED;
@@ -76,7 +76,7 @@ class GridApp {
     return this.currentAnimation;
   }
   public setScroll = (scroll?: number) => {
-    this.scroll = scroll ? scroll : null;
+    this.scroll = scroll;
   };
 
   public changeTicker = (animation: "none" | "scroll" | "up" | "down" | "left" | "right") => {
