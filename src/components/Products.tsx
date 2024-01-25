@@ -1,14 +1,13 @@
 import { productNames, productsInfo } from "@/info";
 import Image from "next/image";
 import React, { use, useContext, useEffect, useRef } from "react";
-import FadeInContainer from "./animation/FadeInContainer";
-import Link from "next/link";
 import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 import IndexText from "./animation/IndexText";
 import { gridAnimationRequestAtom, headerModeAtom } from "@/atoms";
 import { useAtom } from "jotai";
 import { EASE } from "@/animationProps";
 import { GridAppContext } from "@/app/GridProvider";
+import ApplicationProducts from "./ApplicationProducts";
 const Products = ({ screenWidth }: { screenWidth: number }) => {
   const gridApp = useContext(GridAppContext);
   const ref = useRef<HTMLDivElement>(null);
@@ -30,20 +29,23 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
     }
     if (ref.current.getBoundingClientRect().y > -10) {
       ref.current.className = "h-[100vh]";
+      gridApp.setScroll();
       setHeaderMode("default");
       return;
     }
   });
 
   useEffect(() => {
+    const setScrollVal = () => {
+      gridApp.setScroll(ref.current?.scrollTop);
+    };
     if (ref.current) {
-      ref.current?.addEventListener("scroll", () => {
-        console.log("Scroll");
-        gridApp.setScroll(ref.current?.scrollTop);
-      });
+      ref.current?.addEventListener("scroll", setScrollVal);
     }
     return () => {
+      // ref.current?.removeEventListener("scroll", setScrollVal);
       setHeaderMode("default");
+      gridApp.setScroll(0);
     };
   }, [setHeaderMode, gridApp]);
 
@@ -72,10 +74,16 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
         </section>
       </div>
 
-      <div className=" snap-start h-full">
-        <section>
-          <p>CompassChat</p>
-        </section>
+      <div className="snap-start h-full px-4">
+        <div className="h-full flex items-center">
+          <ApplicationProducts />
+        </div>
+      </div>
+
+      <div className="snap-start h-full px-4">
+        <div className="h-full flex items-center">
+          <ApplicationProducts />
+        </div>
       </div>
 
       <div className=" snap-start h-full p-4">
