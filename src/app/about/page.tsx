@@ -13,8 +13,6 @@ const About = () => {
   const screenWidth = useContext(ScreenWidthContext);
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 2 });
-  console.log(screenWidth);
-
   if (screenWidth < 768)
     return (
       <>

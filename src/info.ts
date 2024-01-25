@@ -1,7 +1,7 @@
 export const profileCardInfo = {
   name: "MAKIMURA",
   email: "makimura3329@gmail.com",
-  comment: "Web系を中心にソフトウェアの作成を行い楽しんでいます。",
+  comment: "Webアプリケーションの開発やCGコンテンツの制作をしています。",
   links: {},
 };
 export type productNames = "compassChat";
