@@ -15,6 +15,7 @@ export default function Home() {
   const gridApp = useContext(GridAppContext);
   const screenWidth = useContext(ScreenWidthContext);
   useGrid({ gridApp, page: 1 });
+  if (screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
   return (
     <>
       <Header page={1} />

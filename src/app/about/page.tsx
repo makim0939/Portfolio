@@ -13,35 +13,7 @@ const About = () => {
   const screenWidth = useContext(ScreenWidthContext);
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 2 });
-  if (screenWidth < 768)
-    return (
-      <>
-        <Header page={2} />
-        <div className=" relative flex w-full h-screen">
-          <div className="w-[364px] h-[220px]">
-            <ProfileCard page={2} />
-          </div>
-        </div>
-        <section className=" w-[36.4vw]">
-          <IndexText>Skills</IndexText>
-          <FadeInContainer>
-            <p>朝ごはん</p>
-            <p>昼後はん</p>
-            <p>夜ご飯</p>
-          </FadeInContainer>
-        </section>
-        <Delay delay={1}>
-          <section className=" w-[36.4vw]">
-            <IndexText>Skills</IndexText>
-            <FadeInContainer>
-              <p>朝ごはん</p>
-              <p>昼後はん</p>
-              <p>夜ご飯</p>
-            </FadeInContainer>
-          </section>
-        </Delay>
-      </>
-    );
+  if (screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
 
   return (
     <>

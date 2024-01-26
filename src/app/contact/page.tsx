@@ -6,10 +6,13 @@ import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
+import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
 
 const Contact = () => {
+  const screenWidth = useContext(ScreenWidthContext);
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 3 });
+  if (screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
   return (
     <>
       <Header page={3} />
@@ -48,7 +51,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <div className=" w-full flex justify-center my-6 ">
-                <button className=" w-full h-[42px] border border-text rounded-sm hover:bg-theme_light hover:border-theme transform duration-[.5s]">
+                <button className=" w-full h-[42px] border border-text rounded-sm hover:bg-theme_light hover:border-theme transform duration-[.3s]">
                   送信
                 </button>
               </div>
