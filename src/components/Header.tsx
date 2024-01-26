@@ -26,7 +26,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   const underlineRef = useRef<HTMLDivElement>(null);
   const prevUnderlineRef = useRef<HTMLDivElement>(null);
   const ulRef = useRef<HTMLUListElement>(null);
-
+  console.log("ul", underlineRef.current?.getBoundingClientRect().x);
   useEffect(() => {
     if (page === prevPage && headerMode === prevHeaderMode) return;
     setPrevHeaderMode(headerMode);
@@ -39,13 +39,13 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   }, [setPrevPage, page, prevPage, headerMode, prevHeaderMode]);
 
   return (
-    <nav className="fixed w-full z-10">
+    <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed w-full z-10"}>
       <motion.ul
         ref={ulRef}
         layoutId={prevPage ? undefined : "header"}
         className={
           headerMode === "small"
-            ? "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-end z-10"
+            ? "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-around z-10"
             : "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-around z-10"
         }
       >
@@ -95,10 +95,19 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
       </motion.ul>
       {page === prevPage && (
         <motion.div
-          className="w-[192px] h-[0.12rem] bg-theme"
+          className=" w-[192px] h-[0.12rem] bg-theme"
+          layoutId="underline"
           style={{ width: underlineRef.current?.getBoundingClientRect().width }}
-          initial={{ x: prevUnderlineRef.current?.getBoundingClientRect().x }}
-          animate={{ x: underlineRef.current?.getBoundingClientRect().x }}
+          initial={{
+            x: prevUnderlineRef.current?.getBoundingClientRect().x!,
+          }}
+          animate={{
+            x:
+              headerMode === "small"
+                ? underlineRef.current?.getBoundingClientRect().x! -
+                  ulRef.current?.getBoundingClientRect().x!
+                : underlineRef.current?.getBoundingClientRect().x,
+          }}
           transition={{ duration: 0.2, ease: EASE }}
         ></motion.div>
       )}
