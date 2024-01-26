@@ -60,7 +60,7 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
             whileInView={{ y: -64 }}
             transition={{ duration: 1, ease: EASE }}
           >
-            Applications
+            Software
           </motion.h1>
           <motion.h1
             className=" text-4xl font-extralight"
@@ -76,13 +76,13 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
 
       <div className="snap-start h-full px-4">
         <div className="h-full flex items-center">
-          <ApplicationProducts />
+          <ApplicationProducts productName="compassChat" />
         </div>
       </div>
 
       <div className="snap-start h-full px-4">
         <div className="h-full flex items-center">
-          <ApplicationProducts />
+          <ApplicationProducts productName="portfolio" />
         </div>
       </div>
 
