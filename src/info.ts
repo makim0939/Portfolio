@@ -1,10 +1,10 @@
 export const profileCardInfo = {
   name: "MAKIMURA",
   email: "makimura3329@gmail.com",
-  comment: "Webアプリケーションの開発やCGコンテンツの制作をしています。",
+  comment: "面白いと思うことに全力で取り組みます。",
   links: {},
 };
-export type productNames = "compassChat";
+export type productNames = "compassChat" | "portfolio";
 export const productsInfo = {
   compassChat: {
     category: "web",
@@ -13,6 +13,14 @@ export const productsInfo = {
     image: "/assets/products/compass-chat.png",
     url: "https://compasschat.vercel.app/",
     skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
+  },
+  portfolio: {
+    category: "web",
+    title: "[ Portfolio ]",
+    description: "",
+    image: "/assets/products/portfolio.PNG",
+    url: "",
+    skills: ["TypeScript", "React", "Next.js", "Vercel", "PixiJS", "Framer-motion", "Jotai", "Sass"],
   },
   materialBunk_bpy: {
     category: "addon",
