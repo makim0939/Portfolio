@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import GridProvider from "./GridProvider";
 import ScreenWidthProvider from "@/components/providers/ScreenWidthProvider";
+import LenisProvider from "@/components/providers/LenisProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <GridProvider>
-          <ScreenWidthProvider>{children}</ScreenWidthProvider>
+          <ScreenWidthProvider>
+            <LenisProvider>{children}</LenisProvider>
+          </ScreenWidthProvider>
         </GridProvider>
       </body>
     </html>

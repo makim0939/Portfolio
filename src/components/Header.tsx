@@ -26,7 +26,6 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   const underlineRef = useRef<HTMLDivElement>(null);
   const prevUnderlineRef = useRef<HTMLDivElement>(null);
   const ulRef = useRef<HTMLUListElement>(null);
-  console.log("ul", underlineRef.current?.getBoundingClientRect().x);
   useEffect(() => {
     if (page === prevPage && headerMode === prevHeaderMode) return;
     setPrevHeaderMode(headerMode);

@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import { useAtom } from "jotai";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GridAppContext } from "./GridProvider";
 import useGrid from "./hooks/useGrid";
 import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
@@ -15,6 +15,7 @@ export default function Home() {
   const gridApp = useContext(GridAppContext);
   const screenWidth = useContext(ScreenWidthContext);
   useGrid({ gridApp, page: 1 });
+
   if (screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
   return (
     <>
@@ -25,18 +26,7 @@ export default function Home() {
         </div>
         <div className="w-full">
           <section className="">
-            {/* <IndexText> Products</IndexText>
-
-            <FadeInContainer>
-              <nav>
-                <ul className="flex">
-                  <li className="mr-16">All</li>
-                  <li className="mr-16">Application</li>
-                  <li className="mr-16">CG</li>
-                </ul>
-              </nav> */}
             <Products screenWidth={screenWidth} />
-            {/* </FadeInContainer> */}
           </section>
         </div>
       </main>

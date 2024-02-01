@@ -9,7 +9,7 @@ export const productsInfo = {
   compassChat: {
     category: "web",
     title: "[ Compass Chat ]",
-    description: "何だか嬉しくなれるチャットアプリです。",
+    description: "ロマンチックかな〜と思い作ったチャットアプリです。",
     image: "/assets/products/compass-chat.png",
     url: "https://compasschat.vercel.app/",
     skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
@@ -29,6 +29,14 @@ export const productsInfo = {
     image: "/assets/products/material-bunk.png",
     url: "https://material-bunk.vercel.app/",
     skills: ["Blender", "Bunk.js", "Vercel"],
+  },
+  classroom: {
+    category: "cg",
+    title: "CLASSROOM",
+    description: "フォトリアルな教室のシーンです。",
+    image: "/assets/products/classroom.mp4",
+    url: "",
+    skills: ["Blender"],
   },
   cloud: {
     category: "cg",
