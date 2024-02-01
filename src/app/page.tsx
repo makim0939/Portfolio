@@ -25,9 +25,7 @@ export default function Home() {
           <ProfileCard page={1} />
         </div>
         <div className="w-full">
-          <section className="">
-            <Products screenWidth={screenWidth} />
-          </section>
+          <Products screenWidth={screenWidth} />
         </div>
       </main>
     </>

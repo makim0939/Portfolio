@@ -14,19 +14,13 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
   const gridApp = useContext(GridAppContext);
   const ref = useRef<HTMLDivElement>(null);
   const [, setHeaderMode] = useAtom(headerModeAtom);
-  const [, setGridAnimationRequest] = useAtom(gridAnimationRequestAtom);
   const { scrollY } = useScroll();
-  const applicationsHeadRef = useRef<HTMLDivElement>(null);
-  const cgHeadRef = useRef<HTMLDivElement>(null);
-  const isApplicationInView = useInView(applicationsHeadRef);
-  const isCGInView = useInView(cgHeadRef);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (!ref.current) return;
     console.log(ref.current.getBoundingClientRect().y);
     if (ref.current.getBoundingClientRect().y < 1) {
       ref.current.className = "";
-      // ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
       setHeaderMode("small");
       return;
     }
@@ -39,28 +33,17 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
   });
 
   useEffect(() => {
-    const setScrollVal = () => {
-      gridApp.setScroll(ref.current?.scrollTop);
-    };
-    if (ref.current) {
-      ref.current?.addEventListener("scroll", setScrollVal);
-    }
     return () => {
-      // ref.current?.removeEventListener("scroll", setScrollVal);
       setHeaderMode("default");
-      gridApp.setScroll(0);
     };
-  }, [setHeaderMode, gridApp]);
+  }, [setHeaderMode]);
 
   return (
     <div ref={ref} className="">
       <ProductsIndex>Software</ProductsIndex>
-
       <SoftwareProducts productName="compassChat" />
       <SoftwareProducts productName="portfolio" />
-
       <ProductsIndex>CG Products</ProductsIndex>
-
       <CgProduct productName="classroom" type="video" />
       <CgProduct productName="cloud" type="video" />
       <CgProduct productName="studio" type="video" />
