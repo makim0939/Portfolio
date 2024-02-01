@@ -2,9 +2,9 @@
 import Lenis from "@studio-freight/lenis";
 import React, { useEffect, useState, createContext, useContext } from "react";
 
-const LenisContext = createContext(null);
+export const LenisContext = createContext<Lenis | null>(null);
 const LenisProvider = ({ children }: { children: React.ReactNode }) => {
-  const [lenis, setLenis] = useState(null);
+  const [lenis, setLenis] = useState<Lenis | null>(null);
   useEffect(() => {
     const newLenis = new Lenis({
       lerp: 0.25,
@@ -15,8 +15,9 @@ const LenisProvider = ({ children }: { children: React.ReactNode }) => {
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
+    setLenis(newLenis);
     return () => newLenis.destroy();
-  });
+  }, [setLenis]);
 
   return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
 };
