@@ -5,7 +5,7 @@ import React from "react";
 const CgProduct = ({ productName, type }: { productName: productNames; type: "video" | "image" }) => {
   if (type === "video")
     return (
-      <section className=" w-[100vw]  h-[100vh] relative">
+      <div className=" w-[100vw]  h-[100vh] relative">
         <video
           src={productsInfo[productName].image}
           width={window.innerWidth}
@@ -16,11 +16,11 @@ const CgProduct = ({ productName, type }: { productName: productNames; type: "vi
           muted
           controls={false}
         ></video>
-      </section>
+      </div>
     );
   else if (type === "image")
     return (
-      <section className=" w-[100vw] h-[100vh] relative">
+      <div className=" w-[100vw] h-[100vh] relative">
         <Image
           src={productsInfo[productName].image}
           alt=""
@@ -28,7 +28,7 @@ const CgProduct = ({ productName, type }: { productName: productNames; type: "vi
           height={window.innerHeight}
           className=" w-[100vw] h-[100vh] object-cover -z-10"
         ></Image>
-      </section>
+      </div>
     );
 };
 
