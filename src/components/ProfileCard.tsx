@@ -23,12 +23,20 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
     animationProps.initial.opacity = 0;
     animationProps.animate.opacity = 1;
   }
-  if (!prevPage && page === 1) {
-    animationProps.initial.y = 160;
-    animationProps.animate.y = 0;
-  } else if (!prevPage && page === 2) {
+  if (page === 1) {
+    if (!prevPage) {
+      animationProps.initial.y = 160;
+      animationProps.animate.y = 0;
+    } else {
+      animationProps.initial.opacity = 0;
+      animationProps.animate.opacity = 1;
+    }
+  } else if ((!prevPage && page === 2) || (prevPage === 2 && page === 2)) {
     animationProps.initial.x = 0;
     animationProps.animate.x = "-25vw";
+  } else if ((!prevPage && page === 3) || (prevPage === 3 && page === 3)) {
+    animationProps.initial.opacity = 0;
+    animationProps.animate.opacity = 0;
   } else if (page < prevPage && page === 2) {
     animationProps.initial = {
       x: "-50vw",
@@ -58,7 +66,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
 
   return (
     <motion.div
-      className=" w-full h-full flex p-[6%] bg-white shadow-lg shadow-neutral-200 border-neutral-50 border-[1px] border-solid "
+      className=" w-full h-full flex p-[6%] bg-white shadow-lg shadow-neutral-200 border border-neutral-50 border-solid "
       {...(animationProps as MotionProps)}
     >
       <div className="w-2/5 pr-[5%] pt-[5%] ">
