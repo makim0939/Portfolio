@@ -8,18 +8,18 @@ import { useLenis } from "@/providers/LenisProvider";
 
 const Products = ({ screenWidth }: { screenWidth: number }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [, setHeaderMode] = useAtom(headerModeAtom);
+  const [headerMode, setHeaderMode] = useAtom(headerModeAtom);
   const lenis = useLenis();
 
   lenis?.on("scroll", () => {
-    console.log("scroll");
     if (!ref.current) return;
     // console.log(ref.current.getBoundingClientRect().y);
-    if (ref.current.getBoundingClientRect().y < 1) {
-      setHeaderMode("small");
+    if (ref.current.getBoundingClientRect().y <= 0) {
+      if (headerMode !== "small") setHeaderMode("small");
+
       return;
     }
-    if (ref.current.getBoundingClientRect().y > -10) {
+    if (ref.current.getBoundingClientRect().y > 0) {
       setHeaderMode("default");
       return;
     }
