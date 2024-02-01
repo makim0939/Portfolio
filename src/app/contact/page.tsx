@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
-import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 
 const Contact = () => {
   const screenWidth = useContext(ScreenWidthContext);

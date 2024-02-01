@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import GridProvider from "./GridProvider";
-import ScreenWidthProvider from "@/components/providers/ScreenWidthProvider";
-import LenisProvider from "@/components/providers/LenisProvider";
+import ScreenWidthProvider from "@/providers/ScreenWidthProvider";
+import LenisProvider from "@/providers/LenisProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

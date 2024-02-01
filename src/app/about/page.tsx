@@ -6,7 +6,7 @@ import { GridAppContext } from "../GridProvider";
 import useGrid from "../hooks/useGrid";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
-import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Delay from "@/components/animation/Delay";
 
 const About = () => {

@@ -6,7 +6,7 @@ import { useAtom } from "jotai";
 import { useContext, useEffect } from "react";
 import { GridAppContext } from "./GridProvider";
 import useGrid from "./hooks/useGrid";
-import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import IndexText from "@/components/animation/IndexText";
 import Products from "@/components/Products";
 import FadeInContainer from "@/components/animation/FadeInContainer";

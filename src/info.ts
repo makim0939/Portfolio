@@ -4,7 +4,15 @@ export const profileCardInfo = {
   comment: "面白いと思うことに全力で取り組みます。",
   links: {},
 };
-export type productNames = "compassChat" | "portfolio";
+export type productNames =
+  | "compassChat"
+  | "portfolio"
+  | "materialBunk_bpy"
+  | "classroom"
+  | "cloud"
+  | "studio"
+  | "prism";
+
 export const productsInfo = {
   compassChat: {
     category: "web",

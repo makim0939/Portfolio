@@ -1,7 +1,7 @@
 "use client";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import IndexText from "@/components/animation/IndexText";
-import { ScreenWidthContext } from "@/components/providers/ScreenWidthProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Image from "next/image";
 import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";

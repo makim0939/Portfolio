@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import { easeInOut, motion, useInView } from "framer-motion";
 import { animationProperties } from "@/animationProps";
 import styles from "./indexText.module.css";
-import { ScreenWidthContext } from "../providers/ScreenWidthProvider";
+import { ScreenWidthContext } from "../../providers/ScreenWidthProvider";
 
 const IndexText = ({ children, once = true }: { children?: string; once?: boolean }) => {
   const ref = useRef(null);
