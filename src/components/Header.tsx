@@ -10,7 +10,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   const [prevPage, setPrevPage] = useAtom(prevPageAtom);
   const [headerMode] = useAtom(headerModeAtom);
   const [prevHeaderMode, setPrevHeaderMode] = useState("default");
-  const [headerUnderLine, setHeaderUnderLine] = useAtom(headerUnderLineAtom);
+
   let headerAnimation;
   if (!!prevPage)
     headerAnimation = {
