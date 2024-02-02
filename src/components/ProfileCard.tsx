@@ -19,6 +19,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
     transition: {},
   };
   animationProps.transition = { duration: 0.5, ease: EASE };
+
   if (!prevPage) {
     animationProps.initial.opacity = 0;
     animationProps.animate.opacity = 1;
@@ -27,9 +28,12 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
     if (!prevPage) {
       animationProps.initial.y = 160;
       animationProps.animate.y = 0;
-    } else {
+    } else if (prevPage === page) {
       animationProps.initial.opacity = 0;
       animationProps.animate.opacity = 1;
+    } else if (prevPage > page) {
+      animationProps.initial.x = "-25vw";
+      animationProps.animate.x = 0;
     }
   } else if ((!prevPage && page === 2) || (prevPage === 2 && page === 2)) {
     animationProps.initial.x = 0;
