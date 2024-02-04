@@ -3,10 +3,11 @@ import GridApp from "@/grid";
 import { useAtom } from "jotai";
 import React, { useState, useEffect, useRef } from "react";
 
-const useGrid = ({ gridApp, page }: { gridApp: GridApp; page: 1 | 2 | 3 }) => {
+const useGrid = ({ gridApp, page }: { gridApp: GridApp | null; page: 1 | 2 | 3 }) => {
   const [prevPage] = useAtom(prevPageAtom);
   const [gridAnimationRequest, setGridAnimationRequest] = useAtom(gridAnimationRequestAtom);
   useEffect(() => {
+    if (!gridApp) return;
     gridApp.addTicker("none");
     if (!prevPage) gridApp.changeTicker("up");
     else if (page > prevPage) gridApp.changeTicker("left");

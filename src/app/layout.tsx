@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import GridProvider from "./GridProvider";
+import GridAppProvider from "../providers/GridAppProvider";
 import ScreenWidthProvider from "@/providers/ScreenWidthProvider";
 import LenisProvider from "@/providers/LenisProvider";
 
@@ -16,11 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GridProvider>
+        <GridAppProvider>
           <ScreenWidthProvider>
             <LenisProvider>{children}</LenisProvider>
           </ScreenWidthProvider>
-        </GridProvider>
+        </GridAppProvider>
       </body>
     </html>
   );
