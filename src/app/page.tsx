@@ -1,15 +1,11 @@
 "use client";
-
+import { useContext } from "react";
+import useGrid from "./hooks/useGrid";
+import { GridAppContext } from "../providers/GridAppProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
-import { useAtom } from "jotai";
-import { useContext, useEffect } from "react";
-import { GridAppContext } from "./GridProvider";
-import useGrid from "./hooks/useGrid";
-import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
-import IndexText from "@/components/animation/IndexText";
 import Products from "@/components/Products";
-import FadeInContainer from "@/components/animation/FadeInContainer";
 
 export default function Home() {
   const gridApp = useContext(GridAppContext);

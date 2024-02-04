@@ -1,12 +1,12 @@
 "use client";
+import React, { useContext } from "react";
+import useGrid from "../hooks/useGrid";
+import { GridAppContext } from "../../providers/GridAppProvider";
+import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
-import React, { useContext, useState } from "react";
-import { GridAppContext } from "../GridProvider";
-import useGrid from "../hooks/useGrid";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
-import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Delay from "@/components/animation/Delay";
 
 const About = () => {
