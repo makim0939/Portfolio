@@ -8,6 +8,9 @@ import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import Delay from "@/components/animation/Delay";
+import AdobeLogoSubstitute from "@/components/ui/AdobeLogoSubstitute";
+import SkillsIcon from "@/components/icon/SkillsIcon";
+import { aboutInfo } from "@/info";
 
 const About = () => {
   const screenWidth = useContext(ScreenWidthContext);
@@ -19,26 +22,29 @@ const About = () => {
     <>
       <Header page={2} />
       <div className=" relative flex w-full h-screen">
-        <div className=" absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px]  min-w-[364px] aspect-[91/ 55] transform -translate-x-1/2">
+        <div className=" absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px]  min-w-[400px] aspect-[91/ 55] transform -translate-x-1/2">
           <ProfileCard page={2} />
         </div>
 
         <main className=" w-[36.4vw] max-w-[540px] h-full absolute top-[20vh] left-1/2 ">
-          <section className=" w-[36.4vw] mb-8">
-            <IndexText>About</IndexText>
+          <section className=" w-[36.4vw] mb-8 [&_p]:my-1">
+            <IndexText className=" mb-2">About</IndexText>
             <FadeInContainer>
-              <p>朝ごはん</p>
-              <p>昼後はん</p>
-              <p>夜ご飯</p>
+              <p>愛知県在住の大学生です。</p>
+              <p>
+                大学でコンピュータやプログラミングについて学ぶ傍ら、Web開発とCGコンテンツ制作に没頭しております。
+              </p>
+              <p>卒業後はソフトウェア開発やデジタルコンテンツの制作に携わりたいと考えています。</p>
             </FadeInContainer>
           </section>
           <Delay delay={0.3}>
             <section className=" w-[36.4vw] mb-8">
-              <IndexText>Skills</IndexText>
-              <FadeInContainer>
-                <p>朝ごはん</p>
-                <p>昼後はん</p>
-                <p>夜ご飯</p>
+              <IndexText className=" mb-2">Skills</IndexText>
+              <FadeInContainer className=" flex flex-wrap [&>div]:m-2">
+                <SkillsIcon src="/assets/logo/BlenderLogo.svg"></SkillsIcon>
+                <SkillsIcon src="/assets/logo/TypescriptLogo.svg"></SkillsIcon>
+                <SkillsIcon src="/assets/logo/ReactLogo.svg"></SkillsIcon>
+                <SkillsIcon src="/assets/logo/ARjsLogo.png"></SkillsIcon>
               </FadeInContainer>
             </section>
           </Delay>

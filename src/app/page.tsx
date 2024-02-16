@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Header page={1} />
       <main className="absolute flex flex-col items-center w-full top-[20vh] ">
-        <div className="mb-[16vh] w-[36.4vw] max-w-[637px]  min-w-[364px] aspect-[91/ 55]">
+        <div className="mb-[16vh] w-[36.4vw] max-w-[637px]  min-w-[400px] aspect-[91/ 55]">
           <ProfileCard page={1} />
         </div>
         <div className="w-full">

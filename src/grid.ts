@@ -13,7 +13,7 @@ class GridApp {
   private readonly DOT_SPACING = 32;
   private readonly GRID_DEFAULT_POS = 21;
   private readonly MOVE_SPEED = 0.036;
-  private readonly SCROLL_SPEED = 0.5;
+  private readonly SCROLL_SPEED = 0.3;
   private readonly INITIAL_MOVE_DIST = 32 * 16;
   private readonly BLUER_COEFFICIENT = 0.01;
 
@@ -21,6 +21,8 @@ class GridApp {
   private currentAnimation: "none" | "scroll" | "up" | "down" | "left" | "right";
   private scroll?: number = undefined;
   private count = 0;
+  private mouseX?: number = undefined;
+  private mouseY?: number = undefined;
 
   constructor() {
     this.app = new PIXI.Application<HTMLCanvasElement>({
@@ -33,6 +35,8 @@ class GridApp {
     this.grid.filters = [this.blurFilter];
     this.app.stage.addChild(this.grid);
 
+    this.app.stage.eventMode = "static";
+    this.app.stage.hitArea = this.app.screen;
     this.currentAnimation = "none";
   }
   public appendGrid = (div: HTMLDivElement) => {
@@ -71,7 +75,6 @@ class GridApp {
     }
   };
 
-  //getter
   public get getCurrentAnimation() {
     return this.currentAnimation;
   }
@@ -100,6 +103,18 @@ class GridApp {
   public resize = (width: number, height: number) => {
     this.width = width;
     this.height = height;
+  };
+
+  private pointerAnimation = (e: PIXI.FederatedPointerEvent) => {
+    this.mouseX = e.x;
+    this.mouseY = e.y;
+    console.log(this.mouseX, this.mouseY);
+  };
+  public addPointerEvent = () => {
+    this.app.stage.addEventListener("pointermove", this.pointerAnimation);
+  };
+  public removePointerEvent = () => {
+    this.app.stage.removeEventListener("pointermove", this.pointerAnimation);
   };
 
   //debug

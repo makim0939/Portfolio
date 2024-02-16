@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <>
       <Header page={3} />
-      <div className=" absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px]  min-w-[364px] aspect-[91/ 55] transform -translate-x-1/2">
+      <div className=" absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px]  min-w-[400px] aspect-[91/ 55] transform -translate-x-1/2">
         <ProfileCard page={3} />
       </div>
       <div className=" absolute top-[64px] w-full p-4">

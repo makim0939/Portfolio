@@ -10,7 +10,7 @@ const ProductsIndex = ({ children }: { children: string }) => {
       <IndexText> Products</IndexText>
       <section className="w-full h-[100vh] flex flex-col items-center justify-center">
         <motion.h1
-          className=" text-4xl 2xl:text-5xl font-extralight mb-2"
+          className=" text-5xl font-extralight mb-2"
           initial={{ y: 0 }}
           whileInView={{ y: -64 }}
           transition={{ duration: 1, ease: EASE }}
@@ -18,7 +18,7 @@ const ProductsIndex = ({ children }: { children: string }) => {
           {children}
         </motion.h1>
         <motion.h1
-          className=" text-4xl 2xl:text-5xl font-extralight"
+          className=" text-5xl font-extralight"
           initial={{ y: 32 }}
           whileInView={{ y: -64 }}
           transition={{ duration: 1, ease: EASE }}

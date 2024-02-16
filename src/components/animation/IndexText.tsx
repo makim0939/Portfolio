@@ -4,7 +4,15 @@ import { animationProperties } from "@/animationProps";
 import styles from "./indexText.module.css";
 import { ScreenWidthContext } from "../../providers/ScreenWidthProvider";
 
-const IndexText = ({ children, once = true }: { children?: string; once?: boolean }) => {
+const IndexText = ({
+  children,
+  className,
+  once = true,
+}: {
+  children?: string;
+  className?: string;
+  once?: boolean;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once,
@@ -24,7 +32,7 @@ const IndexText = ({ children, once = true }: { children?: string; once?: boolea
   };
 
   return (
-    <div className={` ${width} h-11 relative flex`}>
+    <div className={` ${width} h-11 relative flex ` + className}>
       <div ref={ref} className=" absolute top-0 w-fit flex text-4xl font-extralight">
         {charArray.map((char, i) => (
           <motion.div
@@ -43,7 +51,14 @@ const IndexText = ({ children, once = true }: { children?: string; once?: boolea
           </motion.div>
         ))}
       </div>
-      <div className={`${styles.indexText} absolute left-[-16px] h-11 bg-theme`} style={{ width }}></div>
+      <div
+        className={
+          isInView
+            ? `${styles.indexText} absolute left-[-16px] h-11 bg-theme`
+            : "absolute left-[-16px] h-11 bg-theme"
+        }
+        style={{ width }}
+      ></div>
       <motion.div
         variants={borderVariants}
         initial="initial"

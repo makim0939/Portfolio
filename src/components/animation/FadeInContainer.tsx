@@ -2,7 +2,20 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE } from "@/animationProps";
 
-const FadeInContainer = ({ children }: { children: React.ReactElement | React.ReactElement[] }) => {
+type FadeInProps = {
+  duration?: number;
+  distance?: number;
+};
+
+const FadeInContainer = ({
+  children,
+  fadeInProps = { duration: 0.5, distance: 16 },
+  className,
+}: {
+  children: React.ReactElement | React.ReactElement[];
+  fadeInProps?: FadeInProps;
+  className?: string;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     margin: "0px 100%",
@@ -11,7 +24,7 @@ const FadeInContainer = ({ children }: { children: React.ReactElement | React.Re
 
   const variants = {
     initial: {
-      y: 16,
+      y: fadeInProps.distance || 16,
       opacity: 0,
     },
 
@@ -20,7 +33,7 @@ const FadeInContainer = ({ children }: { children: React.ReactElement | React.Re
           y: 0,
           opacity: 1,
           transition: {
-            duration: 0.5,
+            duration: fadeInProps.duration || 0.5,
             staggerChildren: 0.1,
             ease: EASE,
           },
@@ -31,7 +44,7 @@ const FadeInContainer = ({ children }: { children: React.ReactElement | React.Re
         },
   };
   return (
-    <motion.div ref={ref} variants={variants} initial="initial" animate="animate">
+    <motion.div ref={ref} variants={variants} initial="initial" animate="animate" className={className}>
       {children.map((child, i) => (
         <motion.div key={i} variants={variants}>
           {child}

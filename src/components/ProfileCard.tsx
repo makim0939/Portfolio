@@ -4,6 +4,8 @@ import { useAtom } from "jotai";
 import { prevPageAtom } from "@/atoms";
 import Image from "next/image";
 import { profileCardInfo } from "@/info";
+import Link from "next/link";
+import SocialLink from "./ui/SocialLink";
 
 const EASE = [0.22, 1, 0.36, 1];
 const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
@@ -70,22 +72,25 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
 
   return (
     <motion.div
-      className=" w-full h-full flex p-[6%] bg-white shadow-lg shadow-neutral-200 border border-neutral-50 border-solid "
+      className=" w-full flex p-[6%] bg-white shadow-lg shadow-neutral-200 border border-neutral-50 border-solid  "
       {...(animationProps as MotionProps)}
     >
       <div className="w-2/5 pr-[5%] pt-[5%] ">
         <Image src="/assets/profile.jpg" width={200} height={200} alt="profile image" />
       </div>
-      <div className="w-3/5 ">
-        <h1 className=" text-2xl xl:text-3xl font-extralight text-center border-b-2 border-theme">
-          {profileCardInfo.name}
-        </h1>
-        <p className="text-center">{profileCardInfo.email}</p>
-        <div className="h-full p-2">
-          <p className="h-2/3">{profileCardInfo.comment}</p>
-          <div className="flex justify-end">
-            <div className="h-1/3">links</div>
-          </div>
+      <div className="w-3/5 flex flex-col">
+        <div className=" h-1/3">
+          <h1 className=" text-2xl xl:text-3xl font-extralight text-center border-b-2 border-theme">
+            {profileCardInfo.name}
+          </h1>
+          <p className="text-center">{profileCardInfo.email}</p>
+        </div>
+        <div className=" h-1/3">
+          <p className="">{profileCardInfo.comment}</p>
+        </div>
+        <div className=" h-1/3 flex [&>*]:ml-2 items-end justify-end">
+          <SocialLink social={profileCardInfo.socials.ArtStation} />
+          <SocialLink social={profileCardInfo.socials.GitHub} />
         </div>
       </div>
     </motion.div>

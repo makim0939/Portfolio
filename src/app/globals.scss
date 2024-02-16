@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+$theme: "#0008ff";
 :root {
-  font-family: "Segoe UI", "Apple Symbols", "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN W3", sans-serif;
+  // font-family: "Segoe UI", "Apple Symbols", "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN",
+  //   "ヒラギノ角ゴ ProN W3", sans-serif;
   font-size: 17px;
   color: #252528;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  ::selection {
+    color: white;
+    background-color: #dddd00;
+  }
 }
 *::-webkit-scrollbar {
   display: none;

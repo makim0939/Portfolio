@@ -30,9 +30,11 @@ const useGrid = ({ gridApp, page }: { gridApp: GridApp | null; page: 1 | 2 | 3 }
 
     window.addEventListener("scroll", changeToScroll);
     window.addEventListener("resize", resizeCanvas);
+    gridApp.addPointerEvent();
     return () => {
       window.removeEventListener("scroll", changeToScroll);
       window.removeEventListener("resize", resizeCanvas);
+      gridApp.removePointerEvent();
       gridApp.removeTicker();
     };
   }, [gridApp, page, prevPage, gridAnimationRequest, setGridAnimationRequest]);
