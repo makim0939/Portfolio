@@ -80,7 +80,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
       </div>
       <div className="w-3/5 flex flex-col">
         <div className=" h-1/3">
-          <h1 className=" text-2xl xl:text-3xl font-extralight text-center border-b-2 border-theme">
+          <h1 className=" text-3xl 2xl:text-4xl font-extralight text-center border-b-2 border-theme">
             {profileCardInfo.name}
           </h1>
           <p className="text-center">{profileCardInfo.email}</p>

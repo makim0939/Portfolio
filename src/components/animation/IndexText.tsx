@@ -33,7 +33,7 @@ const IndexText = ({
 
   return (
     <div className={` ${width} h-11 relative flex ` + className}>
-      <div ref={ref} className=" absolute top-0 w-fit flex text-4xl font-extralight">
+      <div ref={ref} className=" absolute top-0 w-fit flex text-3xl 2xl:text-4xl font-extralight">
         {charArray.map((char, i) => (
           <motion.div
             key={i}
