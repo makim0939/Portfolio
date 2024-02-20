@@ -39,7 +39,6 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   return (
     <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed w-full z-10"}>
       <motion.ul
-        layoutId={prevPage ? undefined : "header"}
         className={
           headerMode === "small"
             ? "pt-3 text-2xl  md:text-3xl 2xl:text-4xl font-extralight flex justify-around z-10"
