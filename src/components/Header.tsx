@@ -37,6 +37,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
     };
   }, [setPrevPage, page, prevPage, headerMode, prevHeaderMode]);
 
+  console.log(underlineRef, prevUnderlineRef);
   return (
     <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed w-full z-10"}>
       <motion.ul
