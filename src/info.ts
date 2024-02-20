@@ -23,7 +23,7 @@ export const aboutInfo = {
   skills: [
     { name: "TypeScript", imagePath: "/assets/logo/TypescriptLogo.svg" },
     { name: "React", imagePath: "/assets/logo/ReactLogo.svg" },
-    // { name: "Next.js", imagePath: "/assets/logo/NextJsLogo.svg" },
+    { name: "Next.js", imagePath: "/assets/logo/NextJsLogo.svg" },
     // { name: "Supabase", imagePath: "/assets/logo/SupabaseLogo.svg" },
     // { name: "PixiJS", imagePath: "/assets/logo/PixiJsLogo.svg" },
     // { name: "p5.js", imagePath: "/assets/logo/p5jsLogo.svg" },
@@ -45,6 +45,7 @@ export type productNames =
   | "portfolio"
   | "materialBunk_bpy"
   | "classroom"
+  | "robot"
   | "cloud"
   | "studio"
   | "prism";
@@ -53,7 +54,7 @@ export const productsInfo = {
   compassChat: {
     category: "web",
     title: "Compass Chat",
-    description: "<p>画面上のコンパスが相手のいる方向をリアルタイムに指し示すチャットアプリです。</p>",
+    description: "<p>画面上のコンパスが相手の方向をリアルタイムに指し示すチャットアプリ</p>",
     image: "/assets/products/compass-chat.png",
     url: "https://compasschat.vercel.app/",
     skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
@@ -81,6 +82,14 @@ export const productsInfo = {
     image: "/assets/products/classroom.mp4",
     url: "",
     skills: ["Blender"],
+  },
+  robot: {
+    category: "cg",
+    title: "ROBOT",
+    description: "VrChat用のアバターです。",
+    image: "/assets/products/robot.MP4",
+    url: "",
+    skills: ["Blender, Unity"],
   },
   cloud: {
     category: "cg",

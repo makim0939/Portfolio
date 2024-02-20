@@ -71,6 +71,7 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
 
       <ProductsIndex>CG Products</ProductsIndex>
       <CgProduct productName="classroom" type="video" />
+      <CgProduct productName="robot" type="video" />
       <CgProduct productName="cloud" type="video" />
       <CgProduct productName="studio" type="video" />
       <CgProduct productName="prism" type="image" />
