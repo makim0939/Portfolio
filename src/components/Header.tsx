@@ -37,6 +37,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
     };
   }, [setPrevPage, page, prevPage, headerMode, prevHeaderMode]);
 
+  console.log(page, prevPage);
   console.log(underlineRef, prevUnderlineRef);
   return (
     <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed w-full z-10"}>
@@ -99,7 +100,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
           layoutId="underline"
           style={{ width: underlineRef.current?.getBoundingClientRect().width }}
           initial={{
-            x: prevUnderlineRef.current?.getBoundingClientRect().x!,
+            x: prevUnderlineRef.current ? prevUnderlineRef.current.getBoundingClientRect().x! : 0,
           }}
           animate={{
             x:
