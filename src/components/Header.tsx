@@ -94,24 +94,21 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
           {prevPage === 3 && <div ref={prevUnderlineRef}></div>}
         </li>
       </motion.ul>
-      {page === prevPage && (
-        <motion.div
-          className=" w-[192px] h-[0.12rem] bg-theme"
-          layoutId="underline"
-          style={{ width: underlineRef.current?.getBoundingClientRect().width }}
-          initial={{
-            x: prevUnderlineRef.current ? prevUnderlineRef.current.getBoundingClientRect().x! : 0,
-          }}
-          animate={{
-            x:
-              headerMode === "small"
-                ? underlineRef.current?.getBoundingClientRect().x! -
-                  ulRef.current?.getBoundingClientRect().x!
-                : underlineRef.current?.getBoundingClientRect().x,
-          }}
-          transition={{ duration: 0.2, ease: EASE }}
-        ></motion.div>
-      )}
+      <motion.div
+        className=" w-[192px] h-[0.12rem] bg-theme"
+        layoutId="underline"
+        style={{ width: underlineRef.current?.getBoundingClientRect().width }}
+        initial={{
+          x: prevUnderlineRef.current ? prevUnderlineRef.current.getBoundingClientRect().x! : 0,
+        }}
+        animate={{
+          x:
+            headerMode === "small"
+              ? underlineRef.current?.getBoundingClientRect().x! - ulRef.current?.getBoundingClientRect().x!
+              : underlineRef.current?.getBoundingClientRect().x,
+        }}
+        transition={{ duration: 0.2, ease: EASE }}
+      ></motion.div>
     </nav>
   );
 };
