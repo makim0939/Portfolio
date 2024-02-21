@@ -8,8 +8,6 @@ import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import "@/app/globalIcon.scss";
-import Link from "next/link";
-import Image from "next/image";
 
 const Contact = () => {
   const screenWidth = useContext(ScreenWidthContext);
@@ -22,7 +20,7 @@ const Contact = () => {
     setIsSended(true);
   };
 
-  if (screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
+  if (screenWidth !== 0 && screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
   return (
     <>
       <Header page={3} />
@@ -152,7 +150,7 @@ const Contact = () => {
                       height="24"
                       viewBox="0 -960 960 960"
                       width="24"
-                      fill="#0066c0"
+                      fill="#0066c0s"
                     >
                       <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v80h-80v-80H200v560h560v-80h80v80q0 33-23.5 56.5T760-120H200Zm480-160-56-56 103-104H360v-80h367L624-624l56-56 200 200-200 200Z" />
                     </svg>
