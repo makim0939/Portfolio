@@ -2,11 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const SocialLink = ({ social }: { social: { url: string; imagePath: string } }) => {
+const SocialLink = ({
+  social,
+  enabled = true,
+}: {
+  social: { url: string; imagePath: string };
+  enabled?: boolean;
+}) => {
   return (
     <div>
-      <Link href={social.url}>
-        <Image src={social.imagePath} alt={social.url} width={32} height={32} />
+      <Link href={social.url} className={enabled ? "" : "pointer-events-none"}>
+        <Image src={social.imagePath} alt={social.url} width={32} height={32} className=" w-8 2xl:w-10" />
       </Link>
     </div>
   );
