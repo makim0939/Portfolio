@@ -9,6 +9,7 @@ import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import "@/app/globalIcon.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const Contact = () => {
   const screenWidth = useContext(ScreenWidthContext);
@@ -119,7 +120,18 @@ const Contact = () => {
                 </p>
                 <p>お問い合わせはフォームまたは下記メールからお願いいたします。</p>
                 <p className=" my-0.5 flex items-center">
-                  <span className=" material-symbols-outlined mr-4">mail</span> makimura3329@gmail.com
+                  <span className=" mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                      fill="#252528"
+                    >
+                      <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                    </svg>
+                  </span>
+                  makimura3329@gmail.com
                 </p>
               </section>
               <section className="my-8">
@@ -134,7 +146,17 @@ const Contact = () => {
                   className=" w-fit text-[#0066c0] flex items-center my-0.5 "
                 >
                   <span className=" underline">フィードバックアンケート</span>
-                  <span className=" material-symbols-outlined">output</span>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                      fill="#0066c0"
+                    >
+                      <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v80h-80v-80H200v560h560v-80h80v80q0 33-23.5 56.5T760-120H200Zm480-160-56-56 103-104H360v-80h367L624-624l56-56 200 200-200 200Z" />
+                    </svg>
+                  </span>
                 </a>
               </section>
             </FadeInContainer>
