@@ -77,7 +77,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
       {...(animationProps as MotionProps)}
     >
       <div className="w-2/5 pr-[5%] pt-[5%] ">
-        <Image src="/assets/profile.jpg" width={200} height={200} alt="profile image" />
+        <img src="/assets/profile.jpg" />
       </div>
       <div className="w-3/5 flex flex-col">
         <div className=" h-1/3">
