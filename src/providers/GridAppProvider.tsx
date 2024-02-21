@@ -20,7 +20,7 @@ const GridAppProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <div ref={gridRef} className="fixed top-0 z-[-1]"></div>
+      <div ref={gridRef} className="fixed top-0 -z-10"></div>
       <GridAppContext.Provider value={gridApp}>{children}</GridAppContext.Provider>
     </>
   );

@@ -85,7 +85,6 @@ class GridApp {
   public changeTicker = (animation: "none" | "scroll" | "up" | "down" | "left" | "right") => {
     this.currentAnimation = animation;
     this.count = 0;
-    console.log(this.currentAnimation);
   };
   public removeTicker(): void {
     this.app.ticker.remove(this.gridAnimation);

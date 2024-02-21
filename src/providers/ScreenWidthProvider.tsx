@@ -8,7 +8,6 @@ const ScreenWidthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const resize = () => {
       setScreenWidth(window.innerWidth);
-      console.log(window.innerWidth);
     };
     setScreenWidth(window.innerWidth);
     window.addEventListener("resize", resize);

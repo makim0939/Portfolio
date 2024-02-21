@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import useGrid from "../hooks/useGrid";
 import { GridAppContext } from "../../providers/GridAppProvider";
 import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
@@ -45,6 +45,7 @@ const About = () => {
                 <SkillsIcon src="/assets/logo/TypescriptLogo.svg"></SkillsIcon>
                 <SkillsIcon src="/assets/logo/ReactLogo.svg"></SkillsIcon>
                 <SkillsIcon src="/assets/logo/ARjsLogo.png"></SkillsIcon>
+                <SkillsIcon src="/assets/logo/NextJsLogo.svg"></SkillsIcon>
               </FadeInContainer>
             </section>
           </Delay>
