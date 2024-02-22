@@ -9,10 +9,6 @@ $theme: "#0008ff";
   font-size: 17px;
   color: #252528;
   scrollbar-width: none;
-  ::selection {
-    color: white;
-    background-color: #dddd00;
-  }
 }
 *::-webkit-scrollbar {
   display: none;

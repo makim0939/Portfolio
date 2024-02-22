@@ -112,8 +112,8 @@ const Contact = () => {
 
           <div className=" mx-4 2xl:mx-16 my-2">
             <FadeInContainer>
-              <section className=" mb-8">
-                <p className="mb-4">
+              <section className=" mb-4">
+                <p className=" mb-4">
                   <b>|</b> ご気軽にお問い合わせください。
                 </p>
                 <p>お問い合わせはフォームまたは下記メールからお願いいたします。</p>
@@ -133,7 +133,7 @@ const Contact = () => {
                 </p>
               </section>
               <section className="my-8">
-                <p className="mb-4">
+                <p className=" mb-4">
                   <b>|</b> フィードバックアンケートにご協力お願いいたします。
                 </p>
                 <p className="my-0.5">ポートフォリオサイトの改善のためのアンケートを実施しております。</p>
