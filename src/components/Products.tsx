@@ -18,17 +18,13 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
 
   lenis?.on("scroll", () => {
     if (!productsNum || !ref.current) return;
-    const containerPos = ref.current.getBoundingClientRect().y * -1;
-    if (containerPos >= -1) if (headerMode !== "small") setHeaderMode("small");
-    if (containerPos < -1) setHeaderMode("default");
+    const containerPos = ref.current.getBoundingClientRect().y;
+    if (containerPos * -1 <= 1) if (headerMode !== "small") setHeaderMode("small");
+    if (containerPos * -1 > 1) setHeaderMode("default");
     const pos = ref.current.children[snap].getBoundingClientRect().y * -1;
     const height = window.innerHeight;
-    const currentView =
-      1 <= ref.current!.getBoundingClientRect().y
-        ? -1
-        : Math.round(Math.abs(ref.current!.getBoundingClientRect().y) / window.innerHeight);
+    const currentView = 1 <= containerPos ? -1 : Math.round(Math.abs(containerPos) / window.innerHeight);
     setCurrentView(currentView);
-    console.log(ref.current!.getBoundingClientRect().y, window.innerHeight);
 
     if (-150 < pos && pos < 0 && 10 < lenis.velocity) {
       lenis.scrollTo(ref.current.children[snap], {
@@ -67,20 +63,6 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
     };
   }, [setHeaderMode]);
 
-  const ProductsNav = ({ num, now }: { num: number; now: number }) => {
-    const items = [];
-    for (let i = 0; i < num; i++) {
-      items.push(
-        i === now ? (
-          <motion.div layoutId="productsNav" className=" w-4 h-4 rounded-full bg-theme"></motion.div>
-        ) : (
-          <motion.div layoutId="productsNav" className="w-2 h-2 rounded-full bg-text"></motion.div>
-        )
-      );
-    }
-    return <>{items}</>;
-  };
-
   return (
     <>
       {productsNum && ref.current && currentView !== undefined && 0 <= currentView && (
@@ -95,17 +77,17 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
               i === currentView ? (
                 <motion.div
                   initial={{ scale: 1, opacity: 0.1 }}
-                  animate={{ scale: 1.5, opacity: 1 }}
+                  animate={{ scale: 2, opacity: 1 }}
                   key={i}
                   layoutId="productsNav"
-                  className="w-2 h-2 rounded-full bg-black"
+                  className="w-1.5 h-1.5 rounded-full bg-black"
                 ></motion.div>
               ) : (
                 <motion.div
                   key={i}
                   initial={{ scale: 1, opacity: 0.1 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="w-2 h-2 rounded-full bg-black"
+                  className="w-1.5 h-1.5 rounded-full bg-black"
                 ></motion.div>
               )
             )}
