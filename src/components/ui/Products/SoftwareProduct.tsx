@@ -10,7 +10,10 @@ const SoftwareProducts = ({ productName }: { productName: productNames }) => {
   const test = <></>;
   return (
     <div className="h-[100vh] flex items-center justify-center ">
-      <div className=" w-2/5 mx-[2.5%] aspect-[4/3] flex items-center justify-center bg-white shadow-xl shadow-neutral-300 rounded-sm border border-neutral-100 border-solid ">
+      <a
+        href={productsInfo[productName].url}
+        className=" w-2/5 mx-[2.5%] aspect-[4/3] flex items-center justify-center bg-white shadow-xl shadow-neutral-300 rounded-sm border border-neutral-100 border-solid "
+      >
         <div className=" w-[90%] h-[90%] flex items-center justify-center ">
           <Image
             src={productsInfo[productName].image}
@@ -21,12 +24,28 @@ const SoftwareProducts = ({ productName }: { productName: productNames }) => {
             className=" object-cover w-full h-full border rounded-sm "
           />
         </div>
-      </div>
+      </a>
+
       <section className="w-2/5 mx-[2.5%] aspect-[4/3] pl-8">
         <IndexText className=" mb-4">{productsInfo[productName].title}</IndexText>
         <Delay delay={0.7}>
           <FadeInContainer className=" text-lg">
-            {parse(productsInfo[productName].description)}
+            <>
+              {productsInfo[productName].description.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </>
+
+            <p className=" mt-8 mb-2 text-text_light">
+              <b>| </b>使用技術
+            </p>
+            <>
+              {productsInfo[productName].skill.map((item, i) => (
+                <p key={i} className=" text-text_light">
+                  {item}
+                </p>
+              ))}
+            </>
           </FadeInContainer>
         </Delay>
       </section>
