@@ -10,7 +10,7 @@ const SoftwareProducts = ({ productName }: { productName: productNames }) => {
   const test = <></>;
   return (
     <div className="h-[100vh] flex items-center justify-center ">
-      <div className=" w-[50%] aspect-[4/3] flex items-center justify-center bg-white shadow-xl shadow-neutral-300 rounded-sm border border-neutral-100 border-solid ">
+      <div className=" w-2/5 mx-[2.5%] aspect-[4/3] flex items-center justify-center bg-white shadow-xl shadow-neutral-300 rounded-sm border border-neutral-100 border-solid ">
         <div className=" w-[90%] h-[90%] flex items-center justify-center ">
           <Image
             src={productsInfo[productName].image}
@@ -22,7 +22,7 @@ const SoftwareProducts = ({ productName }: { productName: productNames }) => {
           />
         </div>
       </div>
-      <section className="w-[40%] aspect-[4/3] pl-8">
+      <section className="w-2/5 mx-[2.5%] aspect-[4/3] pl-8">
         <IndexText className=" mb-4">{productsInfo[productName].title}</IndexText>
         <Delay delay={0.7}>
           <FadeInContainer className=" text-lg">
