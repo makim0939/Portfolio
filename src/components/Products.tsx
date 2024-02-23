@@ -67,7 +67,7 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
     <>
       {productsNum && ref.current && currentView !== undefined && 0 <= currentView && (
         <motion.div
-          className=" fixed right-4 h-[30vh] top-[35vh] flex flex-col justify-around items-center rounded-full p-2 bg-white z-10  "
+          className=" fixed right-4 h-[30vh] top-[35vh] flex flex-col justify-around items-center rounded-lg p-2 bg-white z-10  "
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.15 }}
         >
