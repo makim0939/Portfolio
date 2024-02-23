@@ -107,7 +107,12 @@ const Contact = () => {
               </FadeInContainer>
             </form>
           ) : (
-            <p>送信しました。</p>
+            <div className="  w-1/2 mr-8 pb-8">
+              <p className=" ">
+                お問い合わせありがとうございます ! <br />
+                返信まで今しばらくお待ちくださいませ。
+              </p>
+            </div>
           )}
 
           <div className=" mx-4 2xl:mx-16 my-2">
