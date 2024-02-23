@@ -20,7 +20,11 @@ const SoftwareProducts = ({ productName }: { productName: productNames }) => {
             alt=""
             width={0}
             height={0}
-            layout="responsive"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
             className=" object-cover w-full h-full border rounded-sm "
           />
         </div>

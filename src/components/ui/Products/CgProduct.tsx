@@ -1,15 +1,20 @@
 import { productNames, productsInfo } from "@/info";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 
 const CgProduct = ({ productName, type }: { productName: productNames; type: "video" | "image" }) => {
+  const [[width, height], setWindowSize] = React.useState([0, 0]);
+  useEffect(() => {
+    setWindowSize([window.innerWidth, window.innerHeight]);
+  }, []);
+
   if (type === "video")
     return (
       <div className=" w-[100vw]  h-[100vh] relative">
         <video
           src={productsInfo[productName].image}
-          width={window.innerWidth}
-          height={window.innerHeight}
+          width={width}
+          height={height}
           className=" w-[100vw] h-[100vh] object-cover -z-10"
           loop
           autoPlay
@@ -24,9 +29,14 @@ const CgProduct = ({ productName, type }: { productName: productNames; type: "vi
         <Image
           src={productsInfo[productName].image}
           alt=""
-          width={window.innerWidth}
-          height={window.innerHeight}
+          width={width}
+          height={height}
           className=" w-[100vw] h-[100vh] object-cover -z-10"
+          sizes="100vw"
+          style={{
+            width: "auto",
+            height: "100vh",
+          }}
         ></Image>
       </div>
     );
