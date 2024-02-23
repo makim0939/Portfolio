@@ -152,7 +152,7 @@ const Contact = () => {
                   <b>|</b> ご気軽にお問い合わせください。
                 </p>
                 <p>お問い合わせはフォームまたは下記メールからお願いいたします。</p>
-                <p className=" my-0.5 flex items-center">
+                <p className="  flex items-center">
                   <span className=" mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -171,12 +171,12 @@ const Contact = () => {
                 <p className=" mb-4">
                   <b>|</b> フィードバックアンケートにご協力お願いいたします。
                 </p>
-                <p className="my-0.5">ポートフォリオサイトの改善のためのアンケートを実施しております。</p>
+                <p>ポートフォリオサイトの改善のためのアンケートを実施しております。</p>
                 <p>ご協力いただけましたら以下のリンクよりご回答ください。</p>
 
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdgbKP0hTGEENYvCKtSw2HLQd8kHBvSOnhztcgdp546ky5WEQ/viewform?usp=sf_link"
-                  className=" w-fit text-[#0066c0] flex items-center my-0.5 "
+                  className=" w-fit text-[#0066c0] flex items-center  "
                 >
                   <span className=" underline">フィードバックアンケート</span>
                   <span>
