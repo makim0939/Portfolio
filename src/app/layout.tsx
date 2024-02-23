@@ -9,12 +9,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Makimura Portfolio",
-  description: "Webディレクターを目指す牧村のポートフォリオ",
+  description: "まきむらのポートフォリオ",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>
         <GridAppProvider>
           <ScreenWidthProvider>
