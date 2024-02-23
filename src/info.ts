@@ -71,7 +71,7 @@ export const productsInfo = {
       "言語・フレームワーク : TypeScript, Next.js, React",
       "ライブラリ : PixiJS, FramerMotion, tailwindcss",
     ],
-    image: "/assets/products/portfolio.PNG",
+    image: "/assets/products/portfolio.png",
     url: "",
     skills: ["TypeScript", "React", "Next.js", "Vercel", "PixiJS", "Framer-motion", "Jotai", "Sass"],
   },
