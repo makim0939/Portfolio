@@ -32,11 +32,6 @@ const CgProduct = ({ productName, type }: { productName: productNames; type: "vi
           width={width}
           height={height}
           className=" w-[100vw] h-[100vh] object-cover -z-10"
-          sizes="100vw"
-          style={{
-            width: "auto",
-            height: "100vh",
-          }}
         ></Image>
       </div>
     );
