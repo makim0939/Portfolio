@@ -4,10 +4,8 @@ import { productsInfo, productNames } from "@/info";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import Delay from "@/components/animation/Delay";
-import parse from "html-react-parser";
 
 const SoftwareProducts = ({ productName }: { productName: productNames }) => {
-  const test = <></>;
   return (
     <div className="h-[100vh] flex items-center justify-center ">
       <a
