@@ -9,15 +9,45 @@ import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import "@/app/globalIcon.scss";
 
+const inputNames: { [key: string]: string } = {
+  name: "entry.2005620554",
+  email: "entry.1045781291",
+  title: "entry.1065046570",
+  content: "entry.1166974658",
+  check: "entry.17237134",
+};
+
 const Contact = () => {
   const screenWidth = useContext(ScreenWidthContext);
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 3 });
   const [isSended, setIsSended] = useState(false);
+  const [error, setError] = useState(false);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSended(true);
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    const formData = new FormData(form);
+    const action = form.getAttribute("action") as string;
+
+    let body = "";
+    for (let key in inputNames) {
+      const data = formData.get(key);
+      const stmt = formData.get(key) ? `${inputNames[key]}=${encodeURIComponent(data as string)}&` : "";
+      body += stmt;
+    }
+
+    fetch(action, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body,
+    }).then((res) => {
+      console.log(res);
+      setIsSended(true);
+    });
   };
 
   if (screenWidth !== 0 && screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
@@ -34,8 +64,8 @@ const Contact = () => {
         <div className=" w-ful flex">
           {!isSended ? (
             <form
+              id="contactForm"
               action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScqaVZRgwPEutExbcWLifZ4NbpL1b6Pnn0UEnbNv8yTRrBroQ/formResponse"
-              target="hidden-iframe"
               onSubmit={onSubmit}
               className="  w-1/2 mr-8 pb-8"
             >
@@ -46,8 +76,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required={true}
-                    name="entry.2005620554"
                     className=" border border-text h-8 rounded-sm focus:border-theme"
                   />
                 </div>
@@ -57,8 +87,8 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required={true}
-                    name="entry.1045781291"
                     className=" border border-text h-8 rounded-sm focus:border-theme"
                   />
                 </div>
@@ -69,8 +99,8 @@ const Contact = () => {
 
                   <input
                     type="text"
+                    name="title"
                     required={true}
-                    name="entry.1065046570"
                     className=" border border-text h-8 rounded-sm focus:border-theme"
                   />
                 </div>
@@ -79,8 +109,8 @@ const Contact = () => {
                     内容 <span className=" text-red-500"> *</span>
                   </label>
                   <textarea
+                    name="content"
                     required={true}
-                    name="entry.1166974658"
                     id=""
                     cols={30}
                     rows={8}
@@ -90,7 +120,7 @@ const Contact = () => {
                 <div className=" flex justify-center">
                   <input
                     type="checkbox"
-                    name="entry.17237134"
+                    name="check"
                     value="送信確認メールを受け取る"
                     className=" w-5 mx-1"
                   />
