@@ -19,6 +19,7 @@ class GridApp {
 
   //state
   private currentAnimation: "none" | "scroll" | "up" | "down" | "left" | "right";
+  private lock = false;
   private scroll?: number = undefined;
   private count = 0;
   private mouseX?: number = undefined;
@@ -83,8 +84,15 @@ class GridApp {
   };
 
   public changeTicker = (animation: "none" | "scroll" | "up" | "down" | "left" | "right") => {
+    if (this.lock) return;
     this.currentAnimation = animation;
     this.count = 0;
+  };
+  public lockTicker = () => {
+    this.lock = true;
+  };
+  public unlockTicker = () => {
+    this.lock = false;
   };
   public removeTicker(): void {
     this.app.ticker.remove(this.gridAnimation);

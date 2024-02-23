@@ -6,21 +6,29 @@ import React, { useState, useEffect, useRef } from "react";
 const useGrid = ({ gridApp, page }: { gridApp: GridApp | null; page: 1 | 2 | 3 }) => {
   const [prevPage] = useAtom(prevPageAtom);
   const [gridAnimationRequest, setGridAnimationRequest] = useAtom(gridAnimationRequestAtom);
+
   useEffect(() => {
     if (!gridApp) return;
+    const pathNames = ["/", "/about", "/contact"];
+    if (page === prevPage || window.location.pathname !== pathNames[page - 1]) return;
     gridApp.addTicker("none");
+
     if (!prevPage) gridApp.changeTicker("up");
     else if (page > prevPage) gridApp.changeTicker("left");
     else if (page < prevPage) gridApp.changeTicker("right");
+    gridApp.lockTicker();
+    window.scrollTo(0, 0);
     if (gridAnimationRequest) {
       gridApp.changeTicker(gridAnimationRequest);
       setGridAnimationRequest(null);
       return;
     }
 
-    const scrollable = page === prevPage ? true : false;
     const changeToScroll = (e: Event) => {
-      // if (!scrollable) return;
+      if (window.scrollY < 10) {
+        gridApp.unlockTicker();
+        return;
+      }
       if (gridApp.getCurrentAnimation === "scroll") return;
       gridApp.changeTicker("scroll");
     };
