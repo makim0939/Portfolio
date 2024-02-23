@@ -65,7 +65,10 @@ export const productsInfo = {
   compassChat: {
     category: "web",
     title: "Compass Chat",
-    description: ["チャット中、画面上のコンパスが相手の方向を指し示します。"],
+    description: [
+      "チャット中、画面上のコンパスが相手の方向をリアルタイムに指し示します。",
+      "チャットアプリ内の機能としてだけでなくエンタメコンテンツにも活用できると考えています。",
+    ],
     skill: ["言語・フロントエンド : TypeScript, Next.js, React", "データベース・バックエンド : Supabase"],
     image: "/assets/products/compass-chat.png",
     url: "https://compass-chat.vercel.app/",
