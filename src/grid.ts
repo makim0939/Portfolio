@@ -87,13 +87,17 @@ class GridApp {
     if (this.lock) return;
     this.currentAnimation = animation;
     this.count = 0;
+    // console.log(this.currentAnimation);
   };
   public lockTicker = () => {
+    // console.log("lock");
     this.lock = true;
   };
   public unlockTicker = () => {
+    // console.log("unlock");
     this.lock = false;
   };
+  public isLocked = () => this.lock;
   public removeTicker(): void {
     this.app.ticker.remove(this.gridAnimation);
     this.count = 0;
@@ -115,7 +119,7 @@ class GridApp {
   private pointerAnimation = (e: PIXI.FederatedPointerEvent) => {
     this.mouseX = e.x;
     this.mouseY = e.y;
-    console.log(this.mouseX, this.mouseY);
+    // console.log(this.mouseX, this.mouseY);
   };
   public addPointerEvent = () => {
     this.app.stage.addEventListener("pointermove", this.pointerAnimation);

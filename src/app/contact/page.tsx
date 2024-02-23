@@ -7,7 +7,6 @@ import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
-import "@/app/globalIcon.scss";
 
 const inputNames: { [key: string]: string } = {
   name: "entry.2005620554",

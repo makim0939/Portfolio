@@ -25,7 +25,7 @@ const useGrid = ({ gridApp, page }: { gridApp: GridApp | null; page: 1 | 2 | 3 }
     }
 
     const changeToScroll = (e: Event) => {
-      if (window.scrollY < 10) {
+      if (gridApp.isLocked() && window.scrollY < 30) {
         gridApp.unlockTicker();
         return;
       }
