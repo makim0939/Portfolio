@@ -1,9 +1,9 @@
 import React, { Children, useEffect, useRef, useState } from "react";
 import { headerModeAtom } from "@/atoms";
 import { useAtom } from "jotai";
-import SoftwareProducts from "./ui/Products/SoftwareProduct";
-import ProductsIndex from "./ui/Products/ProductsIndex";
-import CgProduct from "./ui/Products/CgProduct";
+import SoftwareProducts from "./Products/SoftwareProduct";
+import ProductsIndex from "./Products/ProductsIndex";
+import CgProduct from "./Products/CgProduct";
 import { useLenis } from "@/providers/LenisProvider";
 import FadeInContainer from "./animation/FadeInContainer";
 import { motion } from "framer-motion";

@@ -8,8 +8,7 @@ import ProfileCard from "@/components/ProfileCard";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import Delay from "@/components/animation/Delay";
-import AdobeLogoSubstitute from "@/components/ui/AdobeLogoSubstitute";
-import SkillsIcon from "@/components/icon/SkillsIcon";
+import SkillsIcon from "@/components/SkillsIcon";
 import { aboutInfo } from "@/info";
 
 const About = () => {

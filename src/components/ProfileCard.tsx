@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { prevPageAtom } from "@/atoms";
 import Image from "next/image";
 import { profileCardInfo } from "@/info";
-import SocialLink from "./ui/SocialLink";
+import SocialLink from "./SocialLink";
 
 const EASE = [0.22, 1, 0.36, 1];
 const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
