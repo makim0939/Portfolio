@@ -5,7 +5,7 @@ type ProfileCardInfoType = {
   socials: Object;
 };
 export const profileCardInfo = {
-  name: "MAKIMURA",
+  name: "Makimura",
   email: "makimura3329@gmail.com",
   comment: "面白いと思うことに全力で取り組みます。",
   socials: {
@@ -65,7 +65,7 @@ export const productsInfo = {
     title: "Portfolio",
     description: [
       "ポートフォリオサイトです。",
-      "自己紹介ということで名刺をモチーフにしたデザインにしてみました。背景のポイントグリッドをはじめ自分の好きの要素を詰め込んでいます。",
+      "自己紹介ということで名刺をモチーフにしたデザインにしてみました。背景のポイントグリッドをはじめ、自分の「好き」の要素を詰め込んでいます。",
     ],
     skill: [
       "言語・フレームワーク : TypeScript, Next.js, React",
