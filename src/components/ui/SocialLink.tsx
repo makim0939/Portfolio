@@ -4,7 +4,7 @@ import React from "react";
 
 const SocialLink = ({
   social,
-  enabled = true,
+  enabled,
 }: {
   social: { url: string; imagePath: string };
   enabled?: boolean;

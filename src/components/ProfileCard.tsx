@@ -90,8 +90,8 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
           <p className="">{profileCardInfo.comment}</p>
         </div>
         <div className=" h-1/3 flex [&>*]:ml-2 items-end justify-end">
-          <SocialLink social={profileCardInfo.socials.ArtStation} enabled={page == 3 && false} />
-          <SocialLink social={profileCardInfo.socials.GitHub} enabled={page == 3 && false} />
+          <SocialLink social={profileCardInfo.socials.ArtStation} enabled={page === 3 ? false : true} />
+          <SocialLink social={profileCardInfo.socials.GitHub} enabled={page === 3 ? false : true} />
         </div>
       </div>
     </motion.div>
