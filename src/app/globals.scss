@@ -9,6 +9,9 @@ $theme: "#0008ff";
   font-size: 17px;
   color: #252528;
   scrollbar-width: none;
+  body {
+    line-height: 25px;
+  }
 }
 *::-webkit-scrollbar {
   display: none;
