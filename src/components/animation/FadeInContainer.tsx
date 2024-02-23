@@ -11,14 +11,17 @@ const FadeInContainer = ({
   children,
   fadeInProps = { duration: 0.5, distance: 16 },
   className,
+  once = false,
 }: {
   children: React.ReactElement | React.ReactElement[];
   fadeInProps?: FadeInProps;
   className?: string;
+  once?: boolean;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     margin: "0px 100%",
+    once,
   });
   children = Array.isArray(children) ? children : [children];
 
