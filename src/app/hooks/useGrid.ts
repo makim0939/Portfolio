@@ -41,6 +41,7 @@ const useGrid = ({ gridApp, page }: { gridApp: GridApp | null; page: 1 | 2 | 3 }
     return () => {
       window.removeEventListener("scroll", changeToScroll);
       window.removeEventListener("resize", resizeCanvas);
+      gridApp.unlockTicker();
       gridApp.removeTicker();
     };
   }, [gridApp, page, prevPage, gridAnimationRequest, setGridAnimationRequest]);
