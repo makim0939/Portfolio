@@ -19,8 +19,8 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
   lenis?.on("scroll", () => {
     if (!productsNum || !ref.current) return;
     const containerPos = ref.current.getBoundingClientRect().y;
-    if (containerPos * -1 <= 1) if (headerMode !== "small") setHeaderMode("small");
-    if (containerPos * -1 > 1) setHeaderMode("default");
+    if (containerPos <= 1) if (headerMode !== "small") setHeaderMode("small");
+    if (containerPos > 1) setHeaderMode("default");
     const pos = ref.current.children[snap].getBoundingClientRect().y * -1;
     const height = window.innerHeight;
     const currentView = 1 <= containerPos ? -1 : Math.round(Math.abs(containerPos) / window.innerHeight);
