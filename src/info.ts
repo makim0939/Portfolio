@@ -11,33 +11,44 @@ export const profileCardInfo = {
   socials: {
     ArtStation: {
       url: "https://makimura.artstation.com/",
-      imagePath: "/assets/logo/ArtStationLogo.svg",
+      imagePath: "/assets/logo/artstation.svg",
     },
-    GitHub: { url: "https://github.com/makim0939", imagePath: "/assets/logo/GithubLogo.svg" },
+    GitHub: { url: "https://github.com/makim0939", imagePath: "/assets/logo/github.svg" },
   },
 };
 
 export const aboutInfo = {
   statement:
     "愛知県在住の大学生です。大学でコンピュータやプログラミングについて学ぶ傍らWeb開発、CGコンテンツ制作を行なっています。",
-  skills: [
-    { name: "TypeScript", imagePath: "/assets/logo/TypescriptLogo.svg" },
-    { name: "React", imagePath: "/assets/logo/ReactLogo.svg" },
-    { name: "Next.js", imagePath: "/assets/logo/NextJsLogo.svg" },
-    // { name: "Supabase", imagePath: "/assets/logo/SupabaseLogo.svg" },
-    // { name: "PixiJS", imagePath: "/assets/logo/PixiJsLogo.svg" },
-    // { name: "p5.js", imagePath: "/assets/logo/p5jsLogo.svg" },
-    // { name: "FramerMotion", imagePath: "/assets/logo/FramerMotionLogo.svg" },
-    { name: "AR.js", imagePath: "/assets/logo/ARjsLogo.png" },
-    { name: "Blender", imagePath: "/assets/logo/BlenderLogo.svg" },
-    // { name: "Maya", imagePath: "/assets/logo/MayaLogo.svg" },
-    // { name: "AfterEffects", imagePath:  },
-    // { name: "Photoshop", imagePath: "/assets/logo/PhotoshopLogo.svg" },
-    // { name: "Illustrator", imagePath: "/assets/logo/IllustratorLogo.svg" },
-    // { name: "Figma", imagePath: "/assets/logo/FigmaLogo.svg" },
-    // { name: "ClipStudioPaint", imagePath: "/assets/logo/ClipStudioPaintLogo.svg" },
-    // { name: "Cubase", imagePath: "/assets/logo/CubaseLogo.svg" },
-  ],
+  skills: {
+    web: [
+      { name: "Typescript", imagePath: "/assets/logo/typescript.svg", subCategory: "language" },
+      { name: "React", imagePath: "/assets/logo/react.svg", subCategory: "frontend" },
+      { name: "Next.js", imagePath: "/assets/logo/nextjs.svg", subCategory: "frontend" },
+      { name: "TailwindCSS", imagePath: "/assets/logo/tailwindcss.svg", subCategory: "front" },
+      { name: "Nest.js", imagePath: "/assets/logo/nestjs.svg", subCategory: "backend" },
+      { name: "Supabase", imagePath: "/assets/logo/supabase.svg", subCategory: "backend" },
+      { name: "PixiJS", imagePath: "/assets/logo/pixijs.svg", subCategory: "graphics" },
+      { name: "p5.js", imagePath: "/assets/logo/p5js.svg", subCategory: "graphics" },
+      { name: "FramerMotion", imagePath: "/assets/logo/framermotion.webp", subCategory: "graphics" },
+      { name: "Three.js", imagePath: "/assets/logo/threejs.svg", subCategory: "graphics" },
+      { name: "AR.js", imagePath: "/assets/logo/arjs.png", subCategory: "graphics" },
+    ],
+    cg: [
+      { name: "Blender", imagePath: "/assets/logo/blender.svg", subCategory: "software" },
+      { name: "Maya", imagePath: "/assets/logo/maya.svg", subCategory: "software" },
+      { name: "Figma", imagePath: "/assets/logo/figma.svg", subCategory: "software" },
+      { name: "AfterEffects", imagePath: "/assets/logo/aftereffects.svg", subCategory: "software" },
+      { name: "Photoshop", imagePath: "/assets/logo/photoshop.svg", subCategory: "software" },
+      { name: "Illustrator", imagePath: "/assets/logo/illustrator.svg", subCategory: "software" },
+      {
+        name: "ClipStudioPaint",
+        imagePath: "/assets/logo/clipstudiopaint.svg",
+        subCategory: "software",
+      },
+    ],
+    others: [{ name: "Cubase", imagePath: "/assets/logo/CubaseLogo.svg", subCategory: "software" }],
+  },
 };
 
 export type productNames =
@@ -55,7 +66,7 @@ export const productsInfo = {
     category: "web",
     title: "Compass Chat",
     description: ["チャット中、画面上のコンパスが相手の方向を指し示します。"],
-    skill: ["言語・フレームワーク : TypeScript Next.js, React", "データベース・BaaS : Supabase"],
+    skill: ["言語・フロントエンド : TypeScript, Next.js, React", "データベース・バックエンド : Supabase"],
     image: "/assets/products/compass-chat.png",
     url: "https://compass-chat.vercel.app/",
     skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
@@ -69,7 +80,7 @@ export const productsInfo = {
     ],
     skill: [
       "言語・フレームワーク : TypeScript, Next.js, React",
-      "ライブラリ : PixiJS, FramerMotion, tailwindcss",
+      "グラフィック・スタイリング : PixiJS, FramerMotion, tailwindcss",
     ],
     image: "/assets/products/portfolio.png",
     url: "",
