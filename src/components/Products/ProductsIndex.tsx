@@ -5,7 +5,6 @@ import { EASE } from "@/animationProps";
 import { text } from "stream/consumers";
 
 const ProductsIndex = ({ children, mobile = false }: { children: string; mobile?: boolean }) => {
-  console.log(mobile);
   return (
     <div className={"p-4" + (mobile ? " h-[100vh] " : " h-[100vh] ")}>
       <IndexText> Products</IndexText>

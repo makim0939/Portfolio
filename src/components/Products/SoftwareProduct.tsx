@@ -33,7 +33,7 @@ const SoftwareProduct = ({
           </div>
         </div>
 
-        <section className=" w-full aspect-[4/3] my-8 ">
+        <section className=" w-full  my-8 ">
           <Delay delay={mobile ? 0 : 0.7}>
             <FadeInContainer className=" text-lg" once={mobile ? true : false}>
               <>

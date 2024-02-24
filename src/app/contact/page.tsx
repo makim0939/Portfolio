@@ -45,7 +45,6 @@ const Contact = () => {
       },
       body,
     }).then((res) => {
-      console.log(res);
       setIsSended(true);
     });
   };
@@ -67,7 +66,7 @@ const Contact = () => {
               <p className=" mb-4">
                 <b>|</b> ご気軽にお問い合わせください。
               </p>
-              <p>お問い合わせはフォームまたは下記メールからお願いいたします。</p>
+              <p>お問い合わせはフォームまたはメールからお願いいたします。</p>
               <p className="  flex items-center">
                 <span className=" mr-2">
                   <svg

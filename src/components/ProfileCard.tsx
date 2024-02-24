@@ -69,7 +69,6 @@ const ProfileCard = ({ page, isMobile }: { page: 1 | 2 | 3; isMobile: boolean })
     animationProps.transition.duration = 0.3;
   }
 
-  console.log(prevPage);
   if (isMobile) {
     animationProps.initial = prevPage === 0 ? { opacity: 0, x: 0, y: 64 } : { opacity: 1, x: 0, y: 0 };
     animationProps.animate = { opacity: 1, x: 0, y: 0 };

@@ -142,7 +142,7 @@ export const productsInfo: { software: SoftwareProductInfo[]; cg: CgProductInfo[
         "日常の綺麗な風景をセルルック調で表現しました。キラキラと舞うパーティクルなどシェーダでの表現に力を入れました。",
       ],
       skill: [""],
-      image: "/assets/products/cloud.mov",
+      image: "/assets/products/cloud.MP4",
       url: "",
       skills: ["Blender", "After Effects"],
       type: "video",

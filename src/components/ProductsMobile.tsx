@@ -48,10 +48,15 @@ const ProductsMobile = () => {
 
       <div ref={ref} className=" h-[100vh]">
         <IndexText className=" px-4 "> Software </IndexText>
-        {productsInfo.software.map((product) => (
+        {productsInfo.software.map((product, i) => (
           <div key={product.title}>
             <FadeInContainer fadeInProps={{ distance: 8, duration: 0.1 }} once>
               <SoftwareProduct product={product} mobile />
+              <div className="px-4">
+                {productsInfo.software.length !== i + 1 && (
+                  <div className=" w-full  border-[0.5px] border-text_light "></div>
+                )}
+              </div>
             </FadeInContainer>
           </div>
         ))}
