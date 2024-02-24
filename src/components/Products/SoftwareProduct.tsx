@@ -35,7 +35,7 @@ const SoftwareProduct = ({
 
         <section className=" w-full aspect-[4/3] my-8 ">
           <Delay delay={mobile ? 0 : 0.7}>
-            <FadeInContainer className=" text-lg">
+            <FadeInContainer className=" text-lg" once={mobile ? true : false}>
               <>
                 {product.description.map((item, i) => (
                   <p key={i}>{item}</p>

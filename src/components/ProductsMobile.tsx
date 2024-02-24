@@ -50,7 +50,7 @@ const ProductsMobile = () => {
         <IndexText className=" px-4 "> Software </IndexText>
         {productsInfo.software.map((product) => (
           <div key={product.title}>
-            <FadeInContainer fadeInProps={{ distance: 16 }}>
+            <FadeInContainer fadeInProps={{ distance: 8, duration: 0.1 }} once>
               <SoftwareProduct product={product} mobile />
             </FadeInContainer>
           </div>
@@ -59,7 +59,7 @@ const ProductsMobile = () => {
         <IndexText className=" px-4 "> CG Products </IndexText>
         {productsInfo.cg.map((product) => (
           <div key={product.title}>
-            <FadeInContainer>
+            <FadeInContainer fadeInProps={{ distance: 8, duration: 0.1 }} once>
               <CgProduct product={product} mobile />
             </FadeInContainer>
           </div>
