@@ -15,7 +15,7 @@ const SoftwareProduct = ({
   if (mobile)
     return (
       <div className={"flex flex-col items-center justify-center p-4 "}>
-        <h2 className=" w-full mb-4">{product.title}</h2>
+        <h2 className=" w-full text-2xl font-extralight mt-4 mb-2">{product.title}</h2>
         <div className=" w-full aspect-[4/3] flex items-center justify-center bg-white shadow-xl shadow-neutral-300 rounded-sm border border-neutral-100 border-solid ">
           <div className=" w-[90%] h-[90%] flex items-center justify-center ">
             <Image
