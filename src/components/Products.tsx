@@ -1,14 +1,15 @@
 import React, { Children, useEffect, useRef, useState } from "react";
 import { headerModeAtom } from "@/atoms";
 import { useAtom } from "jotai";
-import SoftwareProducts from "./Products/SoftwareProduct";
+import SoftwareProduct from "./Products/SoftwareProduct";
 import ProductsIndex from "./Products/ProductsIndex";
 import CgProduct from "./Products/CgProduct";
 import { useLenis } from "@/providers/LenisProvider";
 import FadeInContainer from "./animation/FadeInContainer";
 import { motion } from "framer-motion";
+import { productsInfo } from "@/info";
 
-const Products = ({ screenWidth }: { screenWidth: number }) => {
+const Products = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [headerMode, setHeaderMode] = useAtom(headerModeAtom);
   const lenis = useLenis();
@@ -96,19 +97,20 @@ const Products = ({ screenWidth }: { screenWidth: number }) => {
 
       <div ref={ref} className=" h-[100vh]">
         <ProductsIndex>Software</ProductsIndex>
-        <FadeInContainer fadeInProps={{ distance: 64 }}>
-          <SoftwareProducts productName="compassChat" />
-        </FadeInContainer>
-        <FadeInContainer fadeInProps={{ distance: 64 }}>
-          <SoftwareProducts productName="portfolio" />
-        </FadeInContainer>
+        {productsInfo.software.map((product) => (
+          <div key={product.title}>
+            <FadeInContainer fadeInProps={{ distance: 64 }}>
+              <SoftwareProduct product={product} />
+            </FadeInContainer>
+          </div>
+        ))}
 
         <ProductsIndex>CG Products</ProductsIndex>
-        <CgProduct productName="classroom" type="video" />
-        <CgProduct productName="robot" type="video" />
-        <CgProduct productName="cloud" type="video" />
-        <CgProduct productName="studio" type="video" />
-        <CgProduct productName="prism" type="image" />
+        {productsInfo.cg.map((product) => (
+          <div key={product.title}>
+            <CgProduct product={product} />
+          </div>
+        ))}
       </div>
     </>
   );

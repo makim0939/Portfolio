@@ -6,6 +6,7 @@ import { ScreenWidthContext } from "@/providers/ScreenWidthProvider";
 import Header from "@/components/Header";
 import ProfileCard from "@/components/ProfileCard";
 import Products from "@/components/Products";
+import ProductsMobile from "@/components/ProductsMobile";
 
 export default function Home() {
   const gridApp = useContext(GridAppContext);
@@ -27,11 +28,8 @@ export default function Home() {
         >
           <ProfileCard page={1} isMobile={isMobile} />
         </div>
-        {!isMobile && (
-          <div className="w-full">
-            <Products screenWidth={screenWidth} />
-          </div>
-        )}
+
+        <div className="w-full">{isMobile ? <ProductsMobile /> : <Products />}</div>
       </main>
     </>
   );
