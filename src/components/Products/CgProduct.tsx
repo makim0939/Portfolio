@@ -10,7 +10,8 @@ const CgProduct = ({ product, mobile = false }: { product: CgProductInfo; mobile
 
   if (product.type === "video")
     return (
-      <div className=" w-[100vw]  h-[100vh] relative">
+      <div className={mobile ? "p-4" : "w-[100vw]  h-[100vh] relative"}>
+        {mobile && <h2 className=" w-full text-2xl font-extralight ">{product.title}</h2>}
         <video
           src={product.image}
           width={width}
@@ -19,13 +20,15 @@ const CgProduct = ({ product, mobile = false }: { product: CgProductInfo; mobile
           loop
           autoPlay
           muted
+          playsInline
           controls={false}
         ></video>
       </div>
     );
   else if (product.type === "image")
     return (
-      <div className=" w-[100vw] h-[100vh] relative">
+      <div className={mobile ? "p-4" : "w-[100vw]  h-[100vh] relative"}>
+        {mobile && <h2 className=" w-full text-2xl font-extralight ">{product.title}</h2>}
         <Image
           src={product.image}
           alt=""

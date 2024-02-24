@@ -55,7 +55,7 @@ const Contact = () => {
       <>
         <Header page={3} />
         <div className="aspect-[91/ 55] w-[364px] mx-auto mt-16 mb-4 aspect-[91/55] ">
-          <ProfileCard page={3} isMobile={isMobile} />
+          <ProfileCard page={isMobile ? 1 : 3} isMobile={isMobile} />
         </div>
         <div className=" w-full p-4 ">
           <section>

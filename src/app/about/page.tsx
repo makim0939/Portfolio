@@ -29,7 +29,7 @@ const About = () => {
               : " absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px] min-w-[400px] transform -translate-x-1/2 ")
           }
         >
-          <ProfileCard page={2} isMobile={isMobile} />
+          <ProfileCard page={isMobile ? 1 : 2} isMobile={isMobile} />
         </div>
 
         <main className={isMobile ? " w-full p-4 " : " max-w-[540px] h-full ml-[50vw] mt-[20vh]"}>

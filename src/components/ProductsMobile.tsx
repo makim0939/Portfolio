@@ -8,7 +8,7 @@ import FadeInContainer from "./animation/FadeInContainer";
 import { motion } from "framer-motion";
 import IndexText from "./animation/IndexText";
 import { productsInfo } from "@/info";
-import SoftwareProductInfo from "./Products/SoftwareProduct";
+import SoftwareProduct from "./Products/SoftwareProduct";
 
 const ProductsMobile = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +59,9 @@ const ProductsMobile = () => {
         <IndexText className=" px-4 "> CG Products </IndexText>
         {productsInfo.cg.map((product) => (
           <div key={product.title}>
-            <CgProduct product={product} mobile />
+            <FadeInContainer>
+              <CgProduct product={product} mobile />
+            </FadeInContainer>
           </div>
         ))}
       </div>
