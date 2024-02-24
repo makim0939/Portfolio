@@ -8,7 +8,7 @@ import FadeInContainer from "./animation/FadeInContainer";
 import { motion } from "framer-motion";
 import IndexText from "./animation/IndexText";
 import { productsInfo } from "@/info";
-import SoftwareProduct from "./Products/SoftwareProduct";
+import SoftwareProductInfo from "./Products/SoftwareProduct";
 
 const ProductsMobile = () => {
   const ref = useRef<HTMLDivElement>(null);

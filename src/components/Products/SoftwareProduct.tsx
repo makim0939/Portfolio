@@ -1,11 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { SoftwareProduct } from "@/info";
+import { SoftwareProductInfo } from "@/info";
 import IndexText from "@/components/animation/IndexText";
 import FadeInContainer from "@/components/animation/FadeInContainer";
 import Delay from "@/components/animation/Delay";
 
-const SoftwareProducts = ({ product, mobile = false }: { product: SoftwareProduct; mobile?: boolean }) => {
+const SoftwareProduct = ({
+  product,
+  mobile = false,
+}: {
+  product: SoftwareProductInfo;
+  mobile?: boolean;
+}) => {
   if (mobile)
     return (
       <div className={"flex flex-col items-center justify-center p-4 "}>
@@ -101,4 +107,4 @@ const SoftwareProducts = ({ product, mobile = false }: { product: SoftwareProduc
   );
 };
 
-export default SoftwareProducts;
+export default SoftwareProduct;
