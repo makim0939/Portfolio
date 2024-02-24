@@ -4,13 +4,14 @@ import IndexText from "@/components/animation/IndexText";
 import { EASE } from "@/animationProps";
 import { text } from "stream/consumers";
 
-const ProductsIndex = ({ children }: { children: string }) => {
+const ProductsIndex = ({ children, mobile = false }: { children: string; mobile?: boolean }) => {
+  console.log(mobile);
   return (
-    <div className=" h-[100vh] p-4">
+    <div className={"p-4" + (mobile ? " h-[100vh] " : " h-[100vh] ")}>
       <IndexText> Products</IndexText>
-      <section className="w-full h-[100vh] flex flex-col items-center justify-center">
+      <section className="w-full h-full flex flex-col items-center justify-center">
         <motion.h1
-          className=" text-5xl font-extralight mb-2"
+          className=" text-4xl lg:text-5xl font-extralight mb-2"
           initial={{ y: 0 }}
           whileInView={{ y: -64 }}
           transition={{ duration: 1, ease: EASE }}

@@ -1,3 +1,5 @@
+import SoftwareProducts from "./components/Products/SoftwareProduct";
+
 type ProfileCardInfoType = {
   name: string;
   email: string;
@@ -51,98 +53,117 @@ export const aboutInfo = {
   },
 };
 
-export type productNames =
-  | "compassChat"
-  | "portfolio"
-  | "materialBunk_bpy"
-  | "classroom"
-  | "robot"
-  | "cloud"
-  | "studio"
-  | "prism";
+export type ProductName =
+  | "CompassChat"
+  | "Portfolio"
+  | "MaterialBunk_bpy"
+  | "Classroom"
+  | "Robot"
+  | "Cloud"
+  | "Studio"
+  | "Prism";
 
-export const productsInfo = {
-  compassChat: {
-    category: "web",
-    title: "Compass Chat",
-    description: [
-      "チャット中、画面上のコンパスが相手の方向をリアルタイムに指し示します。",
-      "チャットアプリ内の機能としてだけでなくエンタメコンテンツにも活用できると考えています。",
-    ],
-    skill: ["言語・フロントエンド : TypeScript, Next.js, React", "データベース・バックエンド : Supabase"],
-    image: "/assets/products/compass-chat.png",
-    url: "https://compass-chat.vercel.app/",
-    skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
-  },
-  portfolio: {
-    category: "web",
-    title: "Portfolio",
-    description: [
-      "ポートフォリオサイトです。",
-      "自己紹介ということで名刺をモチーフにしたデザインにしてみました。背景のポイントグリッドをはじめ、自分の「好き」の要素を詰め込んでいます。",
-    ],
-    skill: [
-      "言語・フレームワーク : TypeScript, Next.js, React",
-      "グラフィック・スタイリング : PixiJS, FramerMotion, tailwindcss",
-    ],
-    image: "/assets/products/portfolio.png",
-    url: "",
-    skills: ["TypeScript", "React", "Next.js", "Vercel", "PixiJS", "Framer-motion", "Jotai", "Sass"],
-  },
-  materialBunk_bpy: {
-    category: "addon",
-    title: "MATERIAL BUNK",
-    description: ["Blenderの拡張機能です。作成したマテリアルの保存、呼び出ができます。"],
-    skill: [""],
-    image: "/assets/products/material-bunk.png",
-    url: "https://material-bunk.vercel.app/",
-    skills: ["Blender", "Bunk.js", "Vercel"],
-  },
-  classroom: {
-    category: "cg",
-    title: "CLASSROOM",
-    description: ["フォトリアルな教室のシーンです。"],
-    skill: [""],
-    image: "/assets/products/classroom.mp4",
-    url: "",
-    skills: ["Blender"],
-  },
-  robot: {
-    category: "cg",
-    title: "ROBOT",
-    description: ["VrChat用のアバターです。"],
-    skill: [""],
-    image: "/assets/products/robot.MP4",
-    url: "",
-    skills: ["Blender, Unity"],
-  },
-  cloud: {
-    category: "cg",
-    title: "CLOUD",
-    description: [
-      "日常の綺麗な風景をセルルック調で表現しました。キラキラと舞うパーティクルなどシェーダでの表現に力を入れました。",
-    ],
-    skill: [""],
-    image: "/assets/products/cloud.mov",
-    url: "",
-    skills: ["Blender", "After Effects"],
-  },
-  studio: {
-    category: "cg",
-    title: "STUDIO",
-    description: ["ぼかし、色収差もBlenderで行っています。"],
-    skill: [""],
-    image: "/assets/products/studio.mp4",
-    url: "",
-    skills: ["Blender", "After Effects"],
-  },
-  prism: {
-    category: "cg",
-    title: "PRISM",
-    description: ["シェーダでの表現にハマるきっかけとなった作品です。"],
-    skill: [""],
-    image: "/assets/products/prism.png",
-    url: "",
-    skills: ["Blender"],
-  },
+export type SoftwareProductInfo = {
+  title: ProductName;
+  description: string[];
+  skill: string[];
+  image: string;
+  url: string;
+  skills: string[];
+};
+export type CgProductInfo = {
+  title: ProductName;
+  description: string[];
+  skill: string[];
+  image: string;
+  url: string;
+  skills: string[];
+  type: "video" | "image";
+};
+
+export const productsInfo: { software: SoftwareProductInfo[]; cg: CgProductInfo[] } = {
+  software: [
+    {
+      title: "CompassChat",
+      description: [
+        "チャット中、画面上のコンパスが相手の方向をリアルタイムに指し示します。",
+        "チャットアプリ内の機能としてだけでなくエンタメコンテンツにも活用できると考えています。",
+      ],
+      skill: ["言語・フロントエンド : TypeScript, Next.js, React", "データベース・バックエンド : Supabase"],
+      image: "/assets/products/compass-chat.png",
+      url: "https://compass-chat.vercel.app/",
+      skills: ["TypeScript", "React", "Next.js", "Vercel", "Supabase", "TanStack Query", "Jotai", "Sass"],
+    },
+    {
+      title: "Portfolio",
+      description: [
+        "ポートフォリオサイトです。",
+        "自己紹介ということで名刺をモチーフにしたデザインにしてみました。背景のポイントグリッドをはじめ、自分の「好き」の要素を詰め込んでいます。",
+      ],
+      skill: [
+        "言語・フレームワーク : TypeScript, Next.js, React",
+        "グラフィック・スタイリング : PixiJS, FramerMotion, tailwindcss",
+      ],
+      image: "/assets/products/portfolio.png",
+      url: "",
+      skills: ["TypeScript", "React", "Next.js", "Vercel", "PixiJS", "Framer-motion", "Jotai", "Sass"],
+    },
+    // {
+    //   title: "MaterialBunk_bpy",
+    //   description: ["Blenderの拡張機能です。作成したマテリアルの保存、呼び出ができます。"],
+    //   skill: [""],
+    //   image: "/assets/products/material-bunk.png",
+    //   url: "https://material-bunk.vercel.app/",
+    //   skills: ["Blender", "Bunk.js", "Vercel"],
+    // },
+  ],
+  cg: [
+    {
+      title: "Classroom",
+      description: ["フォトリアルな教室のシーンです。"],
+      skill: [""],
+      image: "/assets/products/classroom.mp4",
+      url: "",
+      skills: ["Blender"],
+      type: "video",
+    },
+    {
+      title: "Robot",
+      description: ["VrChat用のアバターです。"],
+      skill: [""],
+      image: "/assets/products/robot.MP4",
+      url: "",
+      skills: ["Blender, Unity"],
+      type: "video",
+    },
+    {
+      title: "Cloud",
+      description: [
+        "日常の綺麗な風景をセルルック調で表現しました。キラキラと舞うパーティクルなどシェーダでの表現に力を入れました。",
+      ],
+      skill: [""],
+      image: "/assets/products/cloud.mov",
+      url: "",
+      skills: ["Blender", "After Effects"],
+      type: "video",
+    },
+    {
+      title: "Studio",
+      description: ["ぼかし、色収差もBlenderで行っています。"],
+      skill: [""],
+      image: "/assets/products/studio.mp4",
+      url: "",
+      skills: ["Blender", "After Effects"],
+      type: "video",
+    },
+    {
+      title: "Prism",
+      description: ["シェーダでの表現にハマるきっかけとなった作品です。"],
+      skill: [""],
+      image: "/assets/products/prism.png",
+      url: "",
+      skills: ["Blender"],
+      type: "image",
+    },
+  ],
 };

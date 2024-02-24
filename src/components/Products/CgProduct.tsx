@@ -1,37 +1,40 @@
-import { productNames, productsInfo } from "@/info";
+import { CgProductInfo } from "@/info";
 import Image from "next/image";
 import React, { useEffect } from "react";
 
-const CgProduct = ({ productName, type }: { productName: productNames; type: "video" | "image" }) => {
+const CgProduct = ({ product, mobile = false }: { product: CgProductInfo; mobile?: boolean }) => {
   const [[width, height], setWindowSize] = React.useState([0, 0]);
   useEffect(() => {
     setWindowSize([window.innerWidth, window.innerHeight]);
   }, []);
 
-  if (type === "video")
+  if (product.type === "video")
     return (
-      <div className=" w-[100vw]  h-[100vh] relative">
+      <div className={mobile ? "p-4" : "w-[100vw]  h-[100vh] relative"}>
+        {mobile && <h2 className=" w-full text-2xl font-extralight ">{product.title}</h2>}
         <video
-          src={productsInfo[productName].image}
+          src={product.image}
           width={width}
           height={height}
-          className=" w-[100vw] h-[100vh] object-cover -z-10"
+          className=" w-full h-full object-cover -z-10"
           loop
           autoPlay
           muted
+          playsInline
           controls={false}
         ></video>
       </div>
     );
-  else if (type === "image")
+  else if (product.type === "image")
     return (
-      <div className=" w-[100vw] h-[100vh] relative">
+      <div className={mobile ? "p-4" : "w-[100vw]  h-[100vh] relative"}>
+        {mobile && <h2 className=" w-full text-2xl font-extralight ">{product.title}</h2>}
         <Image
-          src={productsInfo[productName].image}
+          src={product.image}
           alt=""
           width={width}
           height={height}
-          className=" w-[100vw] h-[100vh] object-cover -z-10"
+          className=" w-full h-full object-cover -z-10"
         ></Image>
       </div>
     );
