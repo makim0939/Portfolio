@@ -36,7 +36,7 @@ const Header = ({ page }: { page: 1 | 2 | 3 }) => {
   };
 
   return (
-    <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed w-full z-10"}>
+    <nav className={headerMode === "small" ? "fixed w-fit right-0 z-10" : "fixed top-0 w-full z-10"}>
       <motion.ul
         className={
           headerMode === "small"

@@ -7,7 +7,7 @@ import { profileCardInfo } from "@/info";
 import SocialLink from "./SocialLink";
 
 const EASE = [0.22, 1, 0.36, 1];
-const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
+const ProfileCard = ({ page, isMobile }: { page: 1 | 2 | 3; isMobile: boolean }) => {
   const [prevPage] = useAtom(prevPageAtom);
   const [screenWidth, setScreenWidth] = useState(0);
   const animationProps: {
@@ -69,6 +69,12 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
     animationProps.transition.duration = 0.3;
   }
 
+  console.log(prevPage);
+  if (isMobile) {
+    animationProps.initial = prevPage === 0 ? { opacity: 0, x: 0, y: 64 } : { opacity: 1, x: 0, y: 0 };
+    animationProps.animate = { opacity: 1, x: 0, y: 0 };
+  }
+
   return (
     <motion.div
       className={
@@ -84,7 +90,7 @@ const ProfileCard = ({ page }: { page: 1 | 2 | 3 }) => {
           <h1 className=" text-3xl 2xl:text-4xl font-extralight text-center border-b-2 border-theme">
             {profileCardInfo.name}
           </h1>
-          <p className="text-center">{profileCardInfo.email}</p>
+          {!isMobile && <p className="text-center">{profileCardInfo.email}</p>}
         </div>
         <div className=" h-1/3">
           <p className="">{profileCardInfo.comment}</p>

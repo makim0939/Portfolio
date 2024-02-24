@@ -15,18 +15,25 @@ const About = () => {
   const screenWidth = useContext(ScreenWidthContext);
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 2 });
-  if (screenWidth !== 0 && screenWidth < 768) return <>🚧モバイル端末用のサイトは現在製作中です🙇‍♀️</>;
-
+  const isMobile = screenWidth !== 0 && screenWidth < 768;
+  console.log(isMobile);
   return (
     <>
       <Header page={2} />
-      <div className=" flex w-full h-full ">
-        <div className=" absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px]  min-w-[400px] aspect-[91/ 55] transform -translate-x-1/2">
-          <ProfileCard page={2} />
+      <div className={isMobile ? "" : " flex w-full h-full "}>
+        <div
+          className={
+            " aspect-[91/ 55] " +
+            (isMobile
+              ? " w-[364px] mx-auto my-16 mb-4 aspect-[91/55] "
+              : " absolute top-[20vh] left-1/2 w-[36.4vw] max-w-[637px] min-w-[400px] transform -translate-x-1/2 ")
+          }
+        >
+          <ProfileCard page={2} isMobile={isMobile} />
         </div>
 
-        <main className=" w-[36.4vw] max-w-[540px] h-full ml-[50vw] mt-[20vh]">
-          <section className=" w-[36.4vw] mb-8 [&_p]:my-1">
+        <main className={isMobile ? " w-full p-4 " : " max-w-[540px] h-full ml-[50vw] mt-[20vh]"}>
+          <section className=" mb-8 [&_p]:my-1">
             <IndexText className=" mb-2">About</IndexText>
             <FadeInContainer once={true}>
               <p>愛知県在住の大学生です。</p>
@@ -36,8 +43,8 @@ const About = () => {
               <p>卒業後はソフトウェア開発やデジタルコンテンツの制作に携わりたいと考えています。</p>
             </FadeInContainer>
           </section>
-          <Delay delay={0.3}>
-            <section className=" w-[36.4vw] mb-8">
+          <Delay delay={isMobile ? 0.1 : 0.3}>
+            <section className=" mb-8">
               <IndexText className=" mb-2">Skills</IndexText>
               <FadeInContainer>
                 <section>
