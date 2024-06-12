@@ -168,7 +168,7 @@ const Contact = () => {
             )}
             <div className=" border-[0.5px] border-text_light my-2 "></div>
 
-            <FadeInContainer>
+            {/* <FadeInContainer>
               <section className="my-8">
                 <p className=" mb-4">
                   <b>|</b> フィードバックアンケートにご協力お願いいたします。
@@ -194,7 +194,7 @@ const Contact = () => {
                   </span>
                 </a>
               </section>
-            </FadeInContainer>
+            </FadeInContainer> */}
           </div>
         </div>
 
@@ -317,7 +317,7 @@ const Contact = () => {
                   makimura3329@gmail.com
                 </p>
               </section>
-              <section className="my-8">
+              {/* <section className="my-8">
                 <p className=" mb-4">
                   <b>|</b> フィードバックアンケートにご協力お願いいたします。
                 </p>
@@ -341,7 +341,7 @@ const Contact = () => {
                     </svg>
                   </span>
                 </a>
-              </section>
+              </section> */}
             </FadeInContainer>
           </div>
         </div>
