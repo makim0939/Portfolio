@@ -16,7 +16,6 @@ const About = () => {
   const gridApp = useContext(GridAppContext);
   useGrid({ gridApp, page: 2 });
   const isMobile = screenWidth !== 0 && screenWidth < 768;
-  console.log(isMobile);
   return (
     <>
       <Header page={2} />
